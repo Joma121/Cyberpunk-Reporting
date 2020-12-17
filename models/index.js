@@ -22,7 +22,7 @@ mongoose.connection.on("disconnect", () => {
     console.log("Mongodb Disconnected...");
 });
 
-
+/* Export */
 module.exports = {
     User: require("./User"),
     Report: require("./Report")
