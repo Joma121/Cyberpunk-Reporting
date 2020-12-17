@@ -6,8 +6,10 @@
 - Report CRUD
 - User Auth
 - Page Styling
-- User Interactions
-- Moderation
+- User Interactions*
+- Moderation*
+ 
+ *Stretch Milestones
  
 
 <h2>Technology Used</h2>
