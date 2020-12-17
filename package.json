@@ -1,0 +1,24 @@
+{
+  "name": "cyberpunk-reporting",
+  "version": "1.0.0",
+  "description": "Report issues with Cyberpunk socially.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:turen121/Cyberpunk-Reporting.git"
+  },
+  "author": "Joshua Martins, Brittany Morataya",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.11.8"
+  }
+}
