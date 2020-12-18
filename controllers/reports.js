@@ -33,9 +33,28 @@ router.get("/:id", async (req, res) => {
     }
 })
 
+// 
 router.get("/:id/edit", async (req, res) => {
     try {
         return res.send("Edit Report page loading")
+    } catch (err) {
+        return res.send(err);
+    }
+})
+
+// Update
+router.put("/:id", async (req, res) => {
+    try {
+        return res.send();
+    } catch (err) {
+        return res.send(err);
+    }
+})
+
+// Delete
+router.delete("/:id", async (req, res) => {
+    try {
+        return res.send();
     } catch (err) {
         return res.send(err);
     }
