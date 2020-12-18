@@ -17,7 +17,6 @@ const reportSchema = new mongoose.Schema(
             gfxCard: {type: String, default: ""},
             os: {type: String, default: ""},
             cpu: {type: String, default: ""},
-            required: true
         },
         anonymous: {type: Boolean, default: false},
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
