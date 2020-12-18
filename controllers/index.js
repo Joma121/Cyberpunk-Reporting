@@ -1,5 +1,5 @@
 module.exports = {
     users: require("./users"),
-    reports: require("./reports"),
-    auth: require("./auth")
+    // reports: require("./reports"),
+    // auth: require("./auth")
 }

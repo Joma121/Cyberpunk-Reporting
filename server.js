@@ -23,7 +23,7 @@ app.use(methodOverride("_method"));
 
 // Session
 app.use(
-    sesstion(
+    session(
         {
             store: new MongoStore({
                 url: "mongodb://localhost:27017/cpReporting"
@@ -47,11 +47,11 @@ app.use((req, res, next) => {
 
 // User Authentication middleware
 app.use((req, res, next) => {
-    app.locals.user = re.session.currentUser;
+    app.locals.user = req.session.currentUser;
     next();
 })
 
-const authRequired = require("./middleware/authRequired");
+// const authRequired = require("./middleware/authRequired");
 
 /* === Routes/Controllers === */
 // Home Routes
@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 
 // Auth controller
 // TODO: Create auth.js in controllers
-app.use("/", controllers.auth);
+// app.use("/", controllers.auth);
 
 // User controller
 // TODO: Create users.js in controllers
@@ -69,7 +69,7 @@ app.use("/users", controllers.users);
 
 // Report controller
 // TODO: Create reports.js in controllers
-app.use("/reports", controllers.reports);
+// app.use("/reports", controllers.reports);
 
 /* === Server Listener === */
 app.listen(PORT, () => {
