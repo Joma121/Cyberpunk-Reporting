@@ -15,7 +15,23 @@ router.get("/", async (req, res) => {
     }
 });
 
+// New
+router.get("/new", async (req, res) => {
+    try {
+        return res.send("New reports page loading");
+    } catch (err) {
+        return res.send(err);
+    }
+})
 
+// Show
+router.get("/:id", async (req, res) => {
+    try {
+        return res.send("Report show page loading")
+    } catch (err) {
+        return res.send(err);
+    }
+})
 
 
 module.exports = router;
