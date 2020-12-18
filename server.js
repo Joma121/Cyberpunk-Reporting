@@ -69,7 +69,7 @@ app.use("/users", controllers.users);
 
 // Report controller
 // TODO: Create reports.js in controllers
-// app.use("/reports", controllers.reports);
+app.use("/reports", controllers.reports);
 
 /* === Server Listener === */
 app.listen(PORT, () => {
