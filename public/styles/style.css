@@ -8,6 +8,7 @@ body, html{
     position: cover;
     background-color: #091833;
     color: #ddd;
+    background-size: 300vh;
 }
 
 header {
