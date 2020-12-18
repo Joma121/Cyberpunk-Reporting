@@ -19,7 +19,7 @@ const reportSchema = new mongoose.Schema(
             cpu: {type: String, default: ""},
         },
         anonymous: {type: Boolean, default: false},
-        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
         imageLinks: [String],
     },
     {
