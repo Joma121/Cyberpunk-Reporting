@@ -26,5 +26,15 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// Create - will be covered by auth 
+
+// Edit
+router.get("/:id/edit", async (req, res) => {
+    try {
+        return res.send("Edit User Profile");
+    } catch (err) {
+        return res.send(err);        
+    }
+})
 
 module.exports = router;
