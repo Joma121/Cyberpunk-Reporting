@@ -26,7 +26,7 @@ app.get("/", function(req, res) {
     res.render("home");
 });
 
-// Movies Controller
+// CyberPunk Controller
 app.use("/home", controllers.index);
 
 
