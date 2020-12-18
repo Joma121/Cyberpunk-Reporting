@@ -61,15 +61,12 @@ app.get("/", (req, res) => {
 });
 
 // Auth controller
-// TODO: Create auth.js in controllers
-// app.use("/", controllers.auth);
+app.use("/", controllers.auth);
 
 // User controller
-// TODO: Create users.js in controllers
 app.use("/users", controllers.users);
 
 // Report controller
-// TODO: Create reports.js in controllers
 app.use("/reports", controllers.reports);
 
 /* === Server Listener === */
