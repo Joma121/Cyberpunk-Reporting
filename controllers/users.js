@@ -1,9 +1,11 @@
 /* require express */
 const express = require('express');
+const authRequired = require('../middleware/authRequired');
 /* create router */
 const router = express.Router();
 /* Internal Modules */
 const db = require("../models");
+
 
 /* Routes */
 // Index
@@ -29,7 +31,7 @@ router.get("/:id", async (req, res) => {
 // Create - will be covered by auth 
 
 // Edit
-router.get("/:id/edit", async (req, res) => {
+router.get("/:id/edit", authRequired, async (req, res) => {
     try {
         return res.send("Edit User Profile");
     } catch (err) {
@@ -38,7 +40,7 @@ router.get("/:id/edit", async (req, res) => {
 })
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/:id", authRequired, async (req, res) => {
     try {
         return res.send();
     } catch (err) {
@@ -47,7 +49,7 @@ router.put("/:id", async (req, res) => {
 })
 
 // Delete
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authRequired, async (req, res) => {
     try {
         return res.send();
     } catch (err) {
