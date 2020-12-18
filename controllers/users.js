@@ -37,4 +37,22 @@ router.get("/:id/edit", async (req, res) => {
     }
 })
 
+// Update
+router.put("/:id", async (req, res) => {
+    try {
+        return res.send();
+    } catch (err) {
+        return res.send(err);
+    }
+})
+
+// Delete
+router.delete("/:id", async (req, res) => {
+    try {
+        return res.send();
+    } catch (err) {
+        return res.send(err);
+    }
+})
+
 module.exports = router;
