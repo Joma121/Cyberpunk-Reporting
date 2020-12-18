@@ -37,7 +37,7 @@
    1. Load browsing page to scroll through reports
    2. see recent and/or 'top' reports
    3. create login OR login
-   4. create report, possibly with annonymity 
+   4. create report, possibly with anonymity 
    5. update report
    6. delete report
    7. view other reports
