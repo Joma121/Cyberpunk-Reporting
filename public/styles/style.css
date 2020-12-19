@@ -131,3 +131,11 @@ div.register {
         color: #ea00d9;
         }
 
+/* Login Form */
+div.login {
+    display: block;
+    text-align: center;
+    margin-top: 250px;
+}
+    
+
