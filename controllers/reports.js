@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
 // New
 router.get("/new", async (req, res) => {
     try {
+        // return res.render("reports/new");
         return res.send("New reports page loading");
     } catch (err) {
         return res.send(err);
@@ -63,6 +64,8 @@ router.get("/:id/edit", authRequired, async (req, res) => {
                 return res.redirect(`/reports/${foundReport._id}`);
             };
         });
+        const context = {report: foundReport};
+        // res.render(`reports/edit`, context);
         return res.send("Edit Report page loading");
     } catch (err) {
         return res.send(err);
@@ -94,7 +97,8 @@ router.put("/:id", authRequired, async (req, res) => {
 // Delete
 router.delete("/:id", authRequired, async (req, res) => {
     try {
-        const deletedReport = await db.Report.findByIdAndDelete(req.params.id).exec(async (err, deletedReport) => {
+        const deletedReport = await db.Report.findByIdAndDelete(req.params.id)
+        .exec(async (err, deletedReport) => {
             const reportCreator = await db.User.findById(deletedReport.createdBy);
             reportCreator.reports.remove(deletedReport);
             reportCreator.save();
