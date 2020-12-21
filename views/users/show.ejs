@@ -65,11 +65,77 @@
                  <div class="input-container">
                     <input class="input-field" type="text" placeholder="Reproduce" name="reproduce">
                  </div>
+                 </form>
             
+                <form>
+                    <fieldset>
+                       <legend>Category</legend>
+                       <p>
+                          <label>Select Category</label>
+                          <select id = "category">
+                            <option value = "1">one</option>
+                            <option value = "2">two</option>
+                            <option value = "3">three</option>
+                            <option value = "4">four</option>
+                          </select>
+                       </p>
+                    </fieldset>
+                 </form>
 
+                 <form>
+                    <fieldset>
+                       <legend>Severity</legend>
+                       <p>
+                          <label>Select Severity</label>
+                          <select id = "severity">
+                            <option value = "1">low</option>
+                            <option value = "2">medium</option>
+                            <option value = "3">high</option>
+                            <option value = "4">critical</option>
+                          </select>
+                       </p>
+                    </fieldset>
+                 </form>
+
+                 <form>
+                    <fieldset>
+                       <legend>frequency</legend>
+                       <p>
+                          <label>Select Frequency</label>
+                          <select id = "frequency">
+                            <option value = "1">1-2</option>
+                            <option value = "2">2-3</option>
+                            <option value = "3">3-4</option>
+                            <option value = "4">5 or more</option>
+                          </select>
+                       </p>
+                    </fieldset>
+                 </form>
+
+                 <label for="start">Date Occured:</label>
+
+                 <input type="date" id="start" name="trip-start"
+                        value="2018-07-22"
+                        min="2018-01-01" max="2018-12-31">
+
+                 <form>
+                    <fieldset>
+                       <legend>System</legend>
+                       <p>
+                          <label>Select System</label>
+                          <select id = "system">
+                            <option value = "1">one</option>
+                            <option value = "2">two</option>
+                            <option value = "3">three</option>
+                            <option value = "4">four</option>
+                          </select>
+                       </p>
+                    </fieldset>
+                 </form>
+               
                 <button type="submit" class="btn">Post</button>
                 
-              </form>
+              
             </div> 
         </main>
     </main>
