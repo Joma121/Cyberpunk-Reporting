@@ -66,8 +66,8 @@ router.get("/:id/edit", authRequired, async (req, res) => {
             };
         });
         const context = {report: foundReport};
-        // res.render(`reports/edit`, context);
-        return res.send("Edit Report page loading");
+        res.render(`reports/edit`, context);
+        // return res.send("Edit Report page loading");
     } catch (err) {
         return res.send(err);
     }
