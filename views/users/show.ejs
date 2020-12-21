@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Entry</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Link Scripts -->
+    <script src="/scripts/app.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    
+    <div class="logo" style="position: flex">
+        <a href="#home"></a><img src="public/images/cp logo-2077.png">
+    </div>
+
+    <div class="bar"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+  </header>
+
+
+<body>
+    <h1>Post</h1>
+
+    <div class="background" style="background-image: url(images/neon-1608315302167-8777.jpg);"></div>
+    
+
+    <div class="navbar">
+        <a href="#message"><i class="fas fa-envelope"></i></a>
+        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#profile"><i class="fas fa-user-circle"></i></a>
+        
+      </div>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>
+
+    <main>
+        <div class="post">
+            <form action="/action_page.php">
+                <h2>Post</h2>
+                <div class="input-container">
+                   <input class="input-field" type="text" placeholder="Title" name="title">
+                </div>
+              
+                <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Actual Outcome" name="outcome">
+                 </div>
+
+                 <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Expected Outcome" name="expoutcome">
+                 </div>
+
+                 <div class="input-container">
+                    <input class="input-field" type="text" placeholder="Reproduce" name="reproduce">
+                 </div>
+            
+
+                <button type="submit" class="btn">Post</button>
+                
+              </form>
+            </div> 
+        </main>
+    </main>
+
+</body>
+</html>
