@@ -56,7 +56,10 @@
             </section>
             <section class="report--header__bottrow">
                 <p class="report--header__bottrow__title"><%= report.title %></p>
-                <p class="report--header__bottrow__occurance"><%= report.occuranceDT.toLocaleDateString(); %></p>
+                <p class="report--header__bottrow__occurance"><% if (report.occuranceDT) { %>
+                        <%= report.occuranceDT.toLocaleDateString(); %>
+                    <% } %>
+                </p>
                 <p class="report--header__bottrow__frequency"><%= report.frequency %></p>
             </section>
         </section>
