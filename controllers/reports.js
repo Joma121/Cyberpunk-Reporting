@@ -34,8 +34,8 @@ router.get("/:id", async (req, res) => {
     try {
         const foundReport = await db.Report.findById(req.params.id).populate("user");
         const context = {report: foundReport};
-        // return res.render("reports/show", context)
-        return res.send("Report show page loading");
+        return res.render("reports/show", context)
+        // return res.send("Report show page loading");
     } catch (err) {
         return res.send(err);
     }
