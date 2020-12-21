@@ -41,16 +41,16 @@ app.use(
 
 // Logger
 app.use((req, res, next) => {
-    req.session.test = "Test Prop";
+    console.log(req.url, req.method);
     console.log(req.session);
     next();
-})
+});
 
 // User Authentication middleware
 app.use((req, res, next) => {
     app.locals.user = req.session.currentUser;
     next();
-})
+});
 
 // const authRequired = require("./middleware/authRequired");
 
