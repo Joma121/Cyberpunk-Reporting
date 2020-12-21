@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= report.title %></title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Link Scripts -->
+    <script src="/scripts/app.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    
+    <div class="logo" style="position: flex">
+        <a href="#home"></a><img src="images/cp logo-2077.png">
+    </div>
+
+    <div class="bar"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+  </header>
+
+
+<body>
+    <h1><%= report.title %></h1>
+
+    
+
+    <div class="navbar">
+        <a href="#message"><i class="fas fa-envelope"></i></a>
+        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#profile"><i class="fas fa-user-circle"></i></a>
+        
+      </div>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>
+    <article class="report">
+        <section class="report-header">
+            <section class="report--header__toprow">
+                <p class="report--header__bottrow__username"><%= report.createdBy.username %></p>
+                <p class="report--header__bottrow__category"><%= report.category %></p>
+                <p class="report--header__bottrow__severity"><%= report.severity %></p>
+
+                <p class="report--header__bottrow__system"><%= report.system.sysType %></p>
+            </section>
+            <section class="report--header__bottrow">
+                <p class="report--header__bottrow__title"><%= report.title %></p>
+                <p class="report--header__bottrow__occurance">
+                    <% if (report.occuranceDT) { %>
+                        <%= report.occuranceDT.toLocaleDateString(); %>
+                    <% } %>
+                </p>
+                <p class="report--header__bottrow__frequency"><%= report.frequency %></p>
+            </section>
+        </section>
+        <section class="report--body">
+            <p class="report--body__actual"><%= report.actualOutcome %></p>
+            <p class="report--body__expected"><%= report.expectedOutcome %></p>
+            <p class="report--body__description"><%= report.description %></p>
+        </section>
+        <aside class="report--body__aside">
+            <p><i class="fas fa-ellipsis-h"></i></p>
+            <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
+            <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
+        </aside>
+    </article>
+</body>
+</html>

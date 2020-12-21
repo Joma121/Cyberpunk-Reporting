@@ -12,8 +12,9 @@ router.get("/", async (req, res) => {
     try {
         const allReports = await db.Report.find();
         const context = {reports: allReports};
-        // return res.render("reports/index", context);
-        return res.send("Main Reports Page loading");
+        
+        return res.render("reports/index", context);
+        // return res.send("Main Reports Page loading");
     } catch (err) {
         return res.send(err);
     }
@@ -34,8 +35,8 @@ router.get("/:id", async (req, res) => {
     try {
         const foundReport = await db.Report.findById(req.params.id).populate("user");
         const context = {report: foundReport};
-        // return res.render("reports/show", context)
-        return res.send("Report show page loading");
+        return res.render("reports/show", context)
+        // return res.send("Report show page loading");
     } catch (err) {
         return res.send(err);
     }
