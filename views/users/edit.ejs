@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Entry</title>
+    <title>Register</title>
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
@@ -17,7 +17,7 @@
 <header>
     
     <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="images/cp logo-2077.png">
+        <a href="#home"></a><img src="public/images/cp logo-2077.png">
     </div>
 
     <div class="bar"></div>
@@ -28,10 +28,9 @@
 
 
 <body>
-    <h1>Post</h1>
+    <h1>Register</h1>
 
-    <div class="background" style="background-image: url(images/neon-1608315302167-8777.jpg);"></div>
-    
+      
 
     <div class="navbar">
         <a href="#message"><i class="fas fa-envelope"></i></a>
@@ -45,6 +44,20 @@
         <div id="navtop"></div>
         <div id="navbottom"></div>
     </div>
+
+    <main>
+       <div class="edit">
+        <form action="/action_page.php">
+            <h2>Edit/ Delete Post</h2>
+            <div class="input-container">
+               <input class="input-field" type="text" placeholder="Edit Post" name="postEdit">
+            </div>
+          
+            <button type="edit" class="btn">Edit</button>
+            <button type="delete" class="btn">Delete</button>
+          </form>
+        </div> 
+    </main>
 
 </body>
 </html>
