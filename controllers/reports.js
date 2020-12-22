@@ -61,13 +61,11 @@ router.get("/:id/edit", authRequired, async (req, res) => {
     try {
         const foundReport = await db.Report.findById(req.params.id).exec((err, foundReport) => {
             if (foundReport.createdBy != req.session.currentUser.id){ 
-                console.log(foundReport);
                 return res.redirect(`/reports/${foundReport._id}`);
             };
-        });
         const context = {report: foundReport};
-        // res.render(`reports/edit`, context);
-        return res.send("Edit Report page loading");
+        res.render(`reports/edit`, context);
+        });
     } catch (err) {
         return res.send(err);
     }
@@ -89,7 +87,7 @@ router.put("/:id", authRequired, async (req, res) => {
             },
         )
         console.log(updatedReport);
-        return res.redirect(`/reports/${foundReport._id}`);
+        return res.redirect(`/reports/${updatedReport._id}`);
     } catch (err) {
         return res.send(err);
     }
