@@ -1,0 +1,92 @@
+body, html{
+    margin: 0;
+    background: url(public/images/backgroundimg.jpg);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: cover;
+    background-color: #091833;
+    color: #ddd;
+    background-size: 300vh;
+}
+
+/*Header*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    height: 23%;
+    width: 100%;
+    padding: 1px;
+    background:#F2E205;
+    
+  }
+    .logo {
+        position: flex;
+    }
+
+
+
+    
+#top {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 5px;
+}   
+
+#bottom {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 0;
+    top: 23%; 
+    width: 100%; 
+    height: 5px;
+}
+/*end of header*/
+
+
+
+/*nav bar*/
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 25%;
+    top: 27%; 
+    width: 74.8%; 
+    height: 30px;
+    
+    }
+
+.navbar a{
+    color: rgb(71, 70, 70);
+    float: right;
+    right: 10%;
+    height: 100%;
+    padding-right: 1em;
+    padding-top: .5em;
+}
+#navtop {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    top: 26%; 
+    width: 100%; 
+    height: .5px;
+}   
+
+#navbottom {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    top: 31%; 
+    width: 100%; 
+    height: .5px;
+}
+/*end of navbar*/
