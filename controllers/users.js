@@ -64,7 +64,6 @@ router.put("/:id", authRequired, async (req, res) => {
             },
             {new: true},
         )
-        console.log("=== Modified ===\n", updatedUser);
         return res.redirect(`/users/${updatedUser._id}`);
     } catch (err) {
         return res.send(err);

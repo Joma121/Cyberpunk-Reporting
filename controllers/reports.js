@@ -83,7 +83,6 @@ router.put("/:id", authRequired, async (req, res) => {
                 runValidators: true
             },
         )
-        console.log(updatedReport);
         return res.redirect(`/reports/${updatedReport._id}`);
     } catch (err) {
         return res.send(err);
