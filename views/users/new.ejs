@@ -107,10 +107,10 @@
                     <legend>frequency</legend>
                     <p>
                         <select id = "frequency">
-                         <option value = "0-1"<% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 times</option>
-                         <option value = "1-2"<% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times></option>
-                         <option value = "<5"<% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
-                         <option value = "<5"<% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
+                         <option value = "0-1 time"<% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 times</option>
+                         <option value = "1-2 times"<% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times></option>
+                         <option value = "<5 times"<% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
+                         <option value = "<5 times"<% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
                        </select>
                     </p>
                  </fieldset>
@@ -141,13 +141,12 @@
                          <option value = "PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %></option>
                           <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
                        </select>
-                       
-                       <p>Graphics Card</p>
-                       <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
-                       <p>Operating System</p>
-                       <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
-                       <p>CPU</p>
-                       <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
+                    <p>Graphics Card</p>
+                <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+                <p>Operating System</p>
+                <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
+                <p>CPU</p>
+                <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
                  </fieldset>
               </form>
             
