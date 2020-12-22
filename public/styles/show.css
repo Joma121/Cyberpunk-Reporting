@@ -102,14 +102,15 @@ span{
      display: none;
  } 
 
- /* Login Form */
-div.login {
+
+
+/* Register Form */
+div.register {
     display: block;
     text-align: center;
     margin-top: 250px;
-}
     
-
+}
     .input-container {
          display: block;
          width: 100%;
@@ -149,7 +150,57 @@ div.login {
         color: #ea00d9;
         }
 
+ 
+ 
+ /* Login Form */
+div.login {
+    display: block;
+    text-align: center;
+    margin-top: 250px;
+}
+      .input-container {
+         display: block;
+         width: 100%;
+         margin-bottom: 15px;
+        }
 
+    .icon {
+        padding: 10px;
+        background: #091833;
+         color: white;
+        min-width: 50px;
+         text-align: center;
+        }
+
+    .input-field {
+        width: 20%;
+        padding: 10px;
+         outline: none;
+        }
+
+    .input-field:focus {
+         border: 3px solid dodgerblue;
+        }
+
+    .btn {
+        background-color: #091833;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+        opacity: 0.9;
+        }
+
+    .btn:hover {
+        opacity: 1;
+        color: #ea00d9;
+        }
+
+
+
+
+/* New Post*/
         .column {
             float: left;
             width: 50%;
@@ -220,6 +271,8 @@ div.login {
                 opacity: 1;
                 color: #ea00d9;
                 }
+
+
         
         
             
