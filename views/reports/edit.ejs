@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Report</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Link Scripts -->
+    <script src="/scripts/app.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    
+    <div class="logo" style="position: flex">
+        <a href="#home"></a><img src="/images/cp logo-2077.png">
+    </div>
+
+    <div class="bar"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+  </header>
+
+
+<body>
+    <h1>Edit Report</h1>
+
+      
+
+    <div class="navbar">
+        <a href="#message"><i class="fas fa-envelope"></i></a>
+        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#profile"><i class="fas fa-user-circle"></i></a>
+        
+      </div>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>
+
+    <main>
+       <div class="edit">
+        <form action="/reports/<%= report._id %>?_method=PUT" method="POST" id="edit--form">
+            <!-- <h2>Modify Report</h2>  Seems superflous with the h1 header above nav-->
+            <section class="input-container">
+               <p>Title</p><p><input class="input-field" type="text" size="55" value="<%= report.title %>" name="title"></p>
+               <p>Actual Outcome</p><p><textarea class="input-field" rows="2" cols="50" value="" name="actualOutcome"><%= report.actualOutcome  %></textarea></p>
+               <p>Expected Outcome</p><p><textarea class="input-field" rows="2" cols="50" value="" name="expectedOutcome"><%= report.expectedOutcome %>"</textarea></p>
+               <p>What Happened / How to Reproduce</p><p><textarea class="input-field" rows="7" cols="50" value="" name="description"><%= report.description %></textarea></p>
+            </section>
+
+            <aside>
+<!-- picturing this to the right of the above section like a sidebar -->
+                <select name="category" id="" required>
+                    <option value="graphical" <% if (report.category === "graphical") { %> default <% } %>>Graphical</option>
+                    <option value="functional" <% if (report.category === "functional") { %> default <% } %>>Functional</option>
+                    <option value="permormance" <% if (report.category === "permormance") { %> default <% } %>>Permormance</option>
+                </select>
+
+                <select name="severity" id="" required>
+                    <option value="critical" <% if (report.severity === "critical") { %> default <% } %>>Critical</option>
+                    <option value="high" <% if (report.severity === "high") { %> default <% } %>>High</option>
+                    <option value="medium" <% if (report.severity === "medium") { %> default <% } %>>Medium</option>
+                    <option value="low" <% if (report.severity === "low") { %> default <% } %>>Low</option>
+                </select>
+
+                <select name="frequency" id="">
+                    <option value="0-1 time" <% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 time</option>
+                    <option value="1-2 times" <% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times</option>
+                    <option value="<5 times" <% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
+                    <option value=">5 times" <% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
+                </select>
+
+                <input type="datetime" name="occuranceDT" id="">
+
+                <select name="system[sysType]" id="">
+                    <option value="PC" <% if (report.system.sysType === "PC") { %> default <% } %>>PC</option>
+                    <option value="XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %>>XboxOne</option>
+                    <option value="XboxOne S" <% if (report.system.sysType === "XboxOne S") { %> default <% } %>>XboxOne S</option>
+                    <option value="XboxOne X" <% if (report.system.sysType === "XboxOne X") { %> default <% } %>>XboxOne X</option>
+                    <option value="Xbox Series X" <% if (report.system.sysType === "Xbox Series X") { %> default <% } %>>Xbox Series X</option>
+                    <option value="Xbox Series S" <% if (report.system.sysType === "Xbox Series S") { %> default <% } %>>Xbox Series S</option>
+                    <option value="PS4" <% if (report.system.sysType === "PS4") { %> default <% } %>>PS4</option>
+                    <option value="PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %>>PS4 Pro</option>
+                    <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
+                </select>
+                <!-- We should hide/show these with app.js, only show on "PC" of above selector
+                    this function should also be present in the create page -->
+                <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+                <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
+                <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
+
+            </aside>
+          </form>
+          <section class="formbuttons">
+              <!-- maybe cancel off to the left with the others to the right -->
+                <input type="button" class="btn" value="Cancel" form="cancel--form">
+                <!-- delete should be a color that makes it pop to reduce accidental presses -->
+                <input type="submit" class="btn" value="Delete" form="delete--form">
+                <input type="submit" class="btn" value="Edit" form="edit--form">
+        </section>
+        <form action="/reports/<%= report._id %>?_method=DELETE" method="POST" id="delet--form">
+        </form>
+        <form action="/reports/<%= report._id %>" method="GET" id="cancel--form">
+        </form>
+        </div> 
+    </main>
+
+</body>
+</html>
