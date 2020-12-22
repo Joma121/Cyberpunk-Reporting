@@ -6,9 +6,11 @@
     <title>User Profile</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="public/styles/userProfile.css">
     <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+    <script src="public/scripts/userProfile.js"></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
@@ -28,8 +30,6 @@
 
 
 <body>
-    <h1>User Profile</h1>
-
     
 
     <div class="navbar">
@@ -40,10 +40,96 @@
         
       </div>  
       
-    <div class="design">
-        <div id="navtop"></div>
-        <div id="navbottom"></div>
+        <div class="design">
+            <div id="navtop"></div>
+            <div id="navbottom"></div>
+        </div>
+
+    <main>
+    
+        <div class="navbar">
+            <a class="#message"><i class="fas fa-envelope"></i></a>
+            <a href="#post"><i class="fas fa-pencil-alt"></i></a>
+            <a href="#home"><i class="fas fa-home"></i></a>
+            <a href="#profile"><i class="fas fa-user-circle"></i></a>
+        
+        </div>  
+      
+        <div class="design">
+            <div id="navtop"></div>
+            <div id="navbottom"></div>
+        </div>
+
+
+
+    
+    <aside class="sidebar">
+        <h1>My Profile<span class="close"><i class="fa fa-times"></i></span></h1>
+        <div class="user-pic">
+            <img width="100" src="image/neon-1608315302167-8777.jpg" alt="">
+        </div>
+        <div class="user-info">
+            <span class="username">Username</span>
+            <span class="email">example@example.com</span>
+        </div>
+        <div class="side-nav">
+            
+            <nav>
+                <ul>
+
+                    <li onclick="show(1)">
+                        <span><i class="fa fa-user"></i></span>
+                        <h3>About Me</h3>
+                    </li>
+
+                    <li  onclick="show(2)">
+                        <span><i class="fa fa-pen"></i></span>
+                        <h3>Posts</h3>
+                    </li>
+                        
+                      
+                    <li onclick="show(3)">
+                        <span><i class="fa fa-comments"></i></span>
+                        <h3>Messages</h3>
+                    </li>
+                            
+                        
+                    <li onclick="show(0)">
+                        <button><i class="fa fa-cog"></i></button>
+                        <h3>Account Settings</h3>
+                    </li>
+                     
+                    
+                </ul>
+            </nav>
+        </div>
+        
+        </div>
+    </aside>
+    <div class="main">
+        <section class="profile tabs">
+            
+        </section>
+        <section class="tabs">
+            <h1>About Me</h1>
+            <p class="text">"I'm a thirty-something gamer living in Indianapolis who decided it was time to share his thoughts, opinions, and ramblings about video games with the world. This blog will be dedicated to that pursuit. I might not update it every day, I will definitely write about games that are a little out of date, and I might post about other stuff sometimes, too. It should be interesting."" -The indy Gamer</p>
+        </section>
+
+        <section class="tabs">
+            <h1>Posts</h1>
+            <p class="text">Here are your previous posts</p>
+        </section>
+
+        <section class="tabs">
+            <h1>Messages</h1>
+            <p class="text">here are your messages</p>
+        </section>
+
+        
     </div>
+
+        
+
 
 </body>
 </html>

@@ -6,9 +6,11 @@
     <title>View User</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="public/styles/view-users.css">
     <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+    <script src="public/scripts/view-users.js"></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
@@ -28,23 +30,57 @@
 
 
 <body>
-    <h1>View User</h1>
-
-    <div class="background" style="background-image: url(images/neon-1608315302167-8777.jpg);"></div>
-    
-
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
       
-    <div class="design">
-        <div id="navtop"></div>
-        <div id="navbottom"></div>
-    </div>
 
+        <div class="navbar">
+            <a href="#message"><i class="fas fa-envelope"></i></a>
+            <a href="#post"><i class="fas fa-pencil-alt"></i></a>
+            <a href="#home"><i class="fas fa-home"></i></a>
+            <a href="#profile"><i class="fas fa-user-circle"></i></a>
+        
+         </div>  
+      
+            <div class="design">
+                <div id="navtop"></div>
+                <div id="navbottom"></div>
+            </div>
+            <main>
+    
+                <aside class="sidebar">
+                    <h1>User Profile<span class="close"><i class="fa fa-times"></i></span></h1>
+                    <div class="user-pic">
+                        <img width="100" src="" alt="">
+                    </div>
+                    <div class="user-info">
+                        <span class="username">Username</span>
+                        <span class="location">location</span>
+                    </div>
+                    <div class="side-nav">
+                        <h2>General</h2>
+                        <nav>
+                            <ul>
+                                <li class="active" onclick="show(0)">
+                                    <span><i class="fa fa-pen"></i></span></li>
+                                    <h3>Posts</h3>
+                                    
+            
+                                <li onclick="show(1)">
+                                    <span><i class="fa fa-comments"></i></span></li>
+                                    <h3>Messages</h3>
+                                    
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="bt-nav">
+                        <ul>
+            
+                        </ul>
+                    </div>
+                </aside>
+                
+            
+                    
+            
+            </main>        
 </body>
 </html>
