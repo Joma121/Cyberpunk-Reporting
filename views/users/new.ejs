@@ -33,7 +33,7 @@
 <body>
     <h1>Post</h1>
 
-    <div class="background" style="background-image: url(images/neon-1608315302167-8777.jpg);"></div>
+    
     
 
     <div class="navbar">
@@ -51,38 +51,38 @@
 
     <main>
       <div class="post">
-         <form action="/action_page.php">
+         <form action="/reports/<%= report._id %>?_method=PUT" method="POST" id="edit--form">
              <h2>Post</h2>
          <div class="row">
              <div class="column"> 
              <div class="input-container">
-                <input class="input-field" type="text" placeholder="Title" name="title">
+                <input class="input-field" type="text" placeholder="Title" size="55" value="<%= report.title %>" name="title">
              </div>
           <div class="response"> 
              <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Actual Outcome" name="outcome">
+                 <textarea class="input-field" type="text" placeholder="Actual Outcome" rows="2" cols="50" value="" name="actualOutcome"><%= report.actualOutcome  %></textarea>
               </div>
 
               <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Expected Outcome" name="expoutcome">
+                 <textarea class="input-field" type="text" placeholder="Expected Outcome" rows="2" cols="50" value="" name="expectedOutcome"><%= report.expectedOutcome %></textarea>
               </div>
 
               <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Reproduce" name="reproduce">
+                 <textarea class="input-field" type="text" placeholder="Reproduce" rows="7" cols="50" value="" name="description"><%= report.description %></textarea>
               </div>
               </form>
              </div>
          </div>
              
-         <div class="column" style="text-align: center">
+         <aside class="column" style="text-align: center">
              <form>
                  <fieldset>
                     <legend>Category</legend>
                     <p>
                          <select id = "category">
-                         <option value = "1">graphical</option>
-                         <option value = "2">functional</option>
-                         <option value = "3">performance</option>
+                         <option value = "1"<% if (report.category === "graphical") { %> default <% } %>>GraphicaL</option>
+                         <option value = "2"<% if (report.category === "functional") { %> default <% } %>>>Functional</option>
+                         <option value = "3"<% if (report.category === "permormance") { %> default <% } %>>Performance</option>
                        </select>
                     </p>
                  </fieldset>
@@ -93,10 +93,10 @@
                     <legend>Severity</legend>
                     <p>
                         <select id = "severity">
-                         <option value = "1">low</option>
-                         <option value = "2">medium</option>
-                         <option value = "3">high</option>
-                         <option value = "4">critical</option>
+                         <option value = "1"<% if (report.severity === "low") { %> default <% } %>>low</option>
+                         <option value = "2" <% if (report.severity === "medium") { %> default <% } %>>medium</option>
+                         <option value = "3"<% if (report.severity === "high") { %> default <% } %>>high</option>
+                         <option value = "4"<% if (report.severity === "critical") { %> default <% } %>>critical</option>
                        </select>
                     </p>
                  </fieldset>
@@ -145,7 +145,7 @@
               </form>
             
              <button type="submit" class="btn">Post</button>
-         </div>    
+            </aside>    
      </div> 
          </div> 
      </main>
