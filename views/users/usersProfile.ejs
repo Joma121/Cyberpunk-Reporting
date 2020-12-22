@@ -46,23 +46,7 @@
         </div>
 
     <main>
-    
-        <div class="navbar">
-            <a class="#message"><i class="fas fa-envelope"></i></a>
-            <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-            <a href="#home"><i class="fas fa-home"></i></a>
-            <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-        </div>  
-      
-        <div class="design">
-            <div id="navtop"></div>
-            <div id="navbottom"></div>
-        </div>
-
-
-
-    
+   
     <aside class="sidebar">
         <h1>My Profile<span class="close"><i class="fa fa-times"></i></span></h1>
         <div class="user-pic">
@@ -112,19 +96,52 @@
         </section>
         <section class="tabs">
             <h1>About Me</h1>
-            <p class="text">"I'm a thirty-something gamer living in Indianapolis who decided it was time to share his thoughts, opinions, and ramblings about video games with the world. This blog will be dedicated to that pursuit. I might not update it every day, I will definitely write about games that are a little out of date, and I might post about other stuff sometimes, too. It should be interesting."" -The indy Gamer</p>
+            <h3>Location</h3>
+            <p><%= user.location %></p>
+            <h3>Blurb</h3>
+            <p class="text"><%= user.blurb %></p>
         </section>
 
         <section class="tabs">
             <h1>Posts</h1>
             <p class="text">Here are your previous posts</p>
+            <% user.reports.forEach(report => { %>
+                <article class="report">
+                    <section class="report-header">
+                        <section class="report--header__toprow">
+                            <p class="report--header__bottrow__username"><%= report.createdBy.username %></p>
+                            <p class="report--header__bottrow__category"><%= report.category %></p>
+                            <p class="report--header__bottrow__severity"><%= report.severity %></p>
+                            <p class="report--header__bottrow__system"><%= report.system.sysType %></p>
+                        </section>
+                        <section class="report--header__bottrow">
+                            <p class="report--header__bottrow__title"><%= report.title %></p>
+                            <p class="report--header__bottrow__occurance">
+                                <% if (report.occuranceDT) { %>
+                                    <%= report.occuranceDT.toLocaleDateString(); %>
+                                <% } %>
+                            </p>
+                            <p class="report--header__bottrow__frequency"><%= report.frequency %></p>
+                        </section>
+                    </section>
+                    <section class="report--body">
+                        <p class="report--body__actual"><%= report.actualOutcome %></p>
+                        <p class="report--body__expected"><%= report.expectedOutcome %></p>
+                        <p class="report--body__description"><%= report.description %></p>
+                    </section>
+                    <aside class="report--body__aside">
+                        <p>
+                            <% if(report.createdBy._id == user.id) { %>
+                            <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
+                            <% } %>
+                        </p>
+                        <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
+                        <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
+                    </aside>
+                </article>
+            
+            <% }) %>
         </section>
-
-        <section class="tabs">
-            <h1>Messages</h1>
-            <p class="text">here are your messages</p>
-        </section>
-
         
     </div>
 

@@ -54,8 +54,9 @@ router.get("/:id", async (req, res) => {
 // Update
 router.put("/:id", authRequired, async (req, res) => {
     try {
+
         const updatedUser = await db.User.findByIdAndUpdate(
-            req.params.id,
+            req.session.currentUser.id,
             {
                 $set: {
                     ...req.body
