@@ -58,12 +58,14 @@
 
             <aside>
 <!-- picturing this to the right of the above section like a sidebar -->
+                <p>Category</p> 
                 <select name="category" id="" required>
                     <option value="graphical" <% if (report.category === "graphical") { %> default <% } %>>Graphical</option>
                     <option value="functional" <% if (report.category === "functional") { %> default <% } %>>Functional</option>
                     <option value="permormance" <% if (report.category === "permormance") { %> default <% } %>>Permormance</option>
                 </select>
 
+                <p>Severity</p>
                 <select name="severity" id="" required>
                     <option value="critical" <% if (report.severity === "critical") { %> default <% } %>>Critical</option>
                     <option value="high" <% if (report.severity === "high") { %> default <% } %>>High</option>
@@ -71,6 +73,7 @@
                     <option value="low" <% if (report.severity === "low") { %> default <% } %>>Low</option>
                 </select>
 
+                <p>Frequency</p>
                 <select name="frequency" id="">
                     <option value="0-1 time" <% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 time</option>
                     <option value="1-2 times" <% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times</option>
@@ -78,8 +81,11 @@
                     <option value=">5 times" <% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
                 </select>
 
+                <p>Occurance</p>
                 <input type="datetime" name="occuranceDT" id="">
+                <!-- Can add a datetime picker-->
 
+                <p>System</p>
                 <select name="system[sysType]" id="">
                     <option value="PC" <% if (report.system.sysType === "PC") { %> default <% } %>>PC</option>
                     <option value="XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %>>XboxOne</option>
@@ -93,8 +99,11 @@
                 </select>
                 <!-- We should hide/show these with app.js, only show on "PC" of above selector
                     this function should also be present in the create page -->
+                <p>Graphics Card</p>
                 <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+                <p>Operating System</p>
                 <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
+                <p>CPU</p>
                 <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
 
             </aside>
