@@ -91,6 +91,17 @@ header {
 
 
 
+.column {
+    float: left;
+    width: 50%;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
 
 h2{
     color:white; 
@@ -98,18 +109,25 @@ h2{
     font-size: 40px;
 }
 
+
 div.post {
-    display: block;
+    position: block;
     text-align: center;
     margin-top: 270px;
+    margin-left: 30px;
     
 }
 
     .input-container {
-         display: block;
-         width: 60%;
+        position: block;
+         width: 100%;
          margin-bottom: 15px;
         }
+    .response {
+        position: block;
+         width: 100%;
+         margin-bottom: 15px;
+    }
 
     
     .input-field {
@@ -122,6 +140,13 @@ div.post {
          border: 3px solid dodgerblue;
         }
 
+    
+
+    fieldset {
+         width:20%;
+        font-weight: bold;
+        
+    }
     .btn {
         background-color: #091833;
         color: white;
@@ -139,9 +164,3 @@ div.post {
 
 
     
-
-    fieldset {
-        width:10%;
-        font-weight: bold;
-        
-    }
