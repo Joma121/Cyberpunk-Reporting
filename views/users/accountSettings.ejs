@@ -67,29 +67,27 @@
                 </div>
                 
                 <div class="rightbox">
-                    <div class="profile tabShow">
-                        <form action="/users/<%= user._id %>?_method=PUT">
+                    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                        <div class="profile tabShow">
                             <h1>Personal Info</h1>
                             <h2><%= user.username %></h2>
                             <h3>Location</h3>
                             <input type="text" name="location" <% if(user.location) { %> value="<%= user.location %>" <% } else { %> placeholder="City, State, Country" <% } %>>
                             <h3>Blurb</h3>
-                            <textarea type="text" rows="4" cols="40" class="input" <% if(!user.blurb) { %> placeholder="A bit about you"><% } else { %>><%= user.blurb %><% } %></textarea>
+                            <textarea type="text" name="blurb" rows="4" cols="40" class="input" <% if(!user.blurb) { %> placeholder="A bit about you"><% } else { %>><%= user.blurb %><% } %></textarea>
                             
                             <input type="submit" class="btn" value="Update">
-                        </form>
-                    </div>
-    
-                    <div class="accountSetting tabShow">
-                        <h1>Login Settings</h1>
-                        <h3>E-mail</h3>
-                        <input type="text" class="email" value="<%= user.email %>">
-                        <h3>New Password</h3>
-                        <p>Leave empty to keep current password</p>
-                        <input type="password" class="password" value="">
-                        
-                        <input type="submit" class="btn" value="Update">
-                    </div>
+                            
+                        </div>
+                    </form>
+                    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                        <div class="accountSetting tabShow">
+                            <h1>Login Settings</h1>
+                            <h3>E-mail</h3>
+                            <input name="email" type="text" class="email" value="<%= user.email %>">                            
+                            <input type="submit" class="btn" value="Update">
+                        </div>
+                    </form>
                 </div>
             </div>
           </main>
