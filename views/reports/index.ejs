@@ -8,7 +8,7 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/app.js" defer></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
@@ -52,7 +52,6 @@
                 <p class="report--header__bottrow__username"><%= report.createdBy.username %></p>
                 <p class="report--header__bottrow__category"><%= report.category %></p>
                 <p class="report--header__bottrow__severity"><%= report.severity %></p>
-
                 <p class="report--header__bottrow__system"><%= report.system.sysType %></p>
             </section>
             <section class="report--header__bottrow">

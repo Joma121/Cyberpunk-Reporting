@@ -17,7 +17,7 @@
 <header>
     
     <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="images/cp logo-2077.png">
+        <a href="#home"></a><img src="/images/cp logo-2077.png">
     </div>
 
     <div class="bar"></div>
@@ -69,7 +69,11 @@
             <p class="report--body__description"><%= report.description %></p>
         </section>
         <aside class="report--body__aside">
-            <p><i class="fas fa-ellipsis-h"></i></p>
+            <p>
+                <% if(report.createdBy._id == user.id) { %>
+                <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
+                <% } %>
+            </p>
             <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
             <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
         </aside>

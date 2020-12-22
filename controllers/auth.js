@@ -5,7 +5,7 @@ const db = require("../models");
 
 // Register - Get 
 router.get("/register", (req, res) => {
-    res.send("auth/register");
+    res.render("auth/register");
 });
 
 // Register - Post
@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
 
 // Login get
 router.get("/login", (req, res) => {
-    res.send("Login page");
+    res.render("auth/login");
 });
 
 // Verify - post

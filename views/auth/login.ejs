@@ -17,7 +17,7 @@
 <header>
     
     <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="public/images/cp logo-2077.png">
+        <a href="#home"></a><img src="images/cp logo-2077.png">
     </div>
 
     <div class="bar"></div>
@@ -47,20 +47,20 @@
 
     <main>
        <div class="login">
-        <form action="/action_page.php">
+        <form action="/login" method="POST">
             <h2>Login</h2>
                      
             <div class="input-container">
               <i class="fa fa-envelope icon"></i>
-              <input class="input-field" type="text" placeholder="Email" name="email">
+              <input class="input-field" type="email" placeholder="Email" name="email" required>
             </div>
           
             <div class="input-container">
               <i class="fa fa-key icon"></i>
-              <input class="input-field" type="password" placeholder="Password" name="psw">
+              <input class="input-field" type="password" placeholder="Password" name="password"required>
             </div>
           
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn">Login</button>
           </form>
         </div> 
     </main>
