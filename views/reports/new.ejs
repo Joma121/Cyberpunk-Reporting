@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Entry</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="public/styles/userProfile.css">
+    <link rel="stylesheet" href="public/styles/show.css">
+    <!-- Link Scripts -->
+    <script src="public/scripts/app.js"></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    
+    <div class="logo" style="position: flex">
+        <a href="#home"></a><img src="public/images/cp logo-2077.png">
+    </div>
+
+    <div class="bar"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+  </header>
+
+
+<body>
+    <h1>Post Report</h1>
+
+    <div class="navbar">
+        <a href="/"><i class="fas fa-home"></i></a>
+         <% if (user.id) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+        <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+        <form action="/logout?_method=DELETE" method="POST"">
+         <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+         </form>
+           <% } else { %>
+            <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+         <% } %>
+
+      </div>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>
+
+    <main>
+      <div class="post">
+         <form action="/reports" method="POST">
+             <h2>Post Report</h2>
+         <div class="row">
+             <div class="column"> 
+             <div class="input-container">
+                <input class="input-field" type="text" placeholder="Title" size="55" name="title">
+             </div>
+          <div class="response"> 
+             <div class="input-container">
+                 <textarea class="input-field" type="text" placeholder="Actual Outcome" rows="2" cols="50" value="" name="actualOutcome"></textarea>
+              </div>
+
+              <div class="input-container">
+                 <textarea class="input-field" type="text" placeholder="Expected Outcome" rows="2" cols="50" value="" name="expectedOutcome"></textarea>
+              </div>
+
+              <div class="input-container">
+                 <textarea class="input-field" type="text" placeholder="Reproduce" rows="7" cols="50" value="" name="description"></textarea>
+              </div>
+              </form>
+             </div>
+         </div>
+             
+         <aside class="column" style="text-align: center">
+                 <fieldset>
+                    <legend>Category</legend>
+                    <p>
+                         <select id = "category">
+                           <option value="">Select Category</option>
+                         <option value = "graphical">GraphicaL</option>
+                         <option value = "functional">Functional</option>
+                         <option value = "permormance">Performance</option>
+                       </select>
+                    </p>
+                 </fieldset>
+                 <fieldset>
+                    <legend>Severity</legend>
+                    <p>
+                        <select id = "severity">
+                           <option value="">Select Severity</option>
+                         <option value = "low">low</option>
+                         <option value = "medium">medium</option>
+                         <option value = "high">high</option>
+                         <option value = "critical">critical</option>
+                       </select>
+                    </p>
+                 </fieldset>
+                 <fieldset>
+                    <legend>frequency</legend>
+                    <p>
+                        <select id = "frequency">
+                           <option value="">Select Frequency</option>
+                         <option value = "0-1 time">0-1 times</option>
+                         <option value = "1-2 times">1-2 times></option>
+                         <option value = "<5 times">&lt;5 times</option>
+                         <option value = ">5 times">&gt;5 times</option>
+                       </select>
+                    </p>
+                 </fieldset>
+                 <fieldset>
+                    <legend>Date Occured</legend>
+              
+                    <input type="date" id="start" name="trip-start"
+                     placeholder="2018-07-22"
+                     min="2020-12-09" >
+                 </fieldset>
+                 <fieldset>
+                    <legend>System</legend>
+                    <p>
+                        <select id = "system">
+                           <option value="">Select System</option>
+                         <option value = "PC">PC</option>
+                         <option value = "XboxOne">XboxOne</option>
+                         <option value = "XboxOne S">XboxOne S</option>
+                         <option value = "XboxOne X">XboxOne X</option>
+                         <option value = "Xbox Series X">Xbox Series X</option>
+                         <option value = "Xbox Series S">Xbox Series S</option>
+                         <option value = "PS4">PS4</option>
+                         <option value = "PS4 Pro">PS4 Pro</option>
+                          <option value="PS5">PS5</option>
+                       </select>
+                     </p>
+                    <p>Graphics Card</p>
+                     <input type="text" name="system[gfxCard]" id="" placeholder="nVidia GeForce GTX 1080">
+                     <p>Operating System</p>
+                     <input type="text" name="system[os]" id="" placeholder="Windows 10">
+                     <p>CPU</p>
+                     <input type="text" name="system[cpu]" id="" placeholder="AMD Ryzen 7 1700X">
+                 </fieldset>
+                 
+             <input type="submit" value="Post" class="btn">
+              </form>
+            
+            </aside>    
+     </div> 
+         </div> 
+     </main>
+ </main>
+
+</body>
+</html>

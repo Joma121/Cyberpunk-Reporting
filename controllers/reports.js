@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
         const context = {reports: allReports};
         
         return res.render("reports/index", context);
-        // return res.send("Main Reports Page loading");
     } catch (err) {
         return res.send(err);
     }
@@ -23,8 +22,7 @@ router.get("/", async (req, res) => {
 // New
 router.get("/new", async (req, res) => {
     try {
-        // return res.render("reports/new");
-        return res.send("New reports page loading");
+        return res.render("reports/new");
     } catch (err) {
         return res.send(err);
     }
@@ -36,7 +34,6 @@ router.get("/:id", async (req, res) => {
         const foundReport = await db.Report.findById(req.params.id).populate("user");
         const context = {report: foundReport};
         return res.render("reports/show", context)
-        // return res.send("Report show page loading");
     } catch (err) {
         return res.send(err);
     }
@@ -50,7 +47,7 @@ router.post("/", async (req, res) => {
         const reportCreator = await db.User.findById(req.session.currentUser.id);
         reportCreator.reports.push(newReport);
         reportCreator.save();
-        return res.redirect(`/users/${req.session.currentUser.id}`)
+        return res.redirect(`/reports/${newReport._id}`)
     } catch (err) {
         return res.send(err);
     }
