@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 /* === Routes/Controllers === */
 // Home Routes
 app.get("/", (req, res) => {
-    res.render("home");
+    res.redirect("reports/");
 });
 
 // Auth controller
