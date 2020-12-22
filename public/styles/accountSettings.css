@@ -1,0 +1,194 @@
+body, html{
+    margin: 0;
+    background: url(image/backgroundimg.jpg);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: cover;
+    background-color: #091833;
+    color: #ddd;
+    background-size: 300vh;
+}
+
+/*Header*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    height: 23%;
+    width: 100%;
+    padding: 1px;
+    background:#F2E205;
+    
+  }
+    .logo {
+        position: flex;
+    }
+
+
+
+    
+#top {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 5px;
+}   
+
+#bottom {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 0;
+    top: 23%; 
+    width: 100%; 
+    height: 5px;
+}
+/*end of header*/
+
+
+
+/*nav bar*/
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    left: 25%;
+    top: 27%; 
+    width: 74.8%; 
+    height: 30px;
+    
+    }
+
+.navbar a{
+    color: rgb(71, 70, 70);
+    float: right;
+    right: 10%;
+    height: 100%;
+    padding-right: 1em;
+    padding-top: .5em;
+}
+#navtop {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    top: 26%; 
+    width: 100%; 
+    height: .5px;
+}   
+
+#navbottom {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    top: 31%; 
+    width: 100%; 
+    height: .5px;
+}
+/*end of navbar*/
+
+
+/*main*/
+div.container {
+    background:  #091833;
+    width: 675px;
+    height: 580px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 300px;
+    box-shadow: 2px 5px 20px #ea00d9;    
+}
+
+.leftbox{
+    float: left;
+    top:-5%;
+    left: 5%;
+    position: absolute;
+    width: 15%;
+    height: 110%;
+    background: #711c91;
+    }
+
+nav a {
+    list-style: none;
+    margin-top: 75px;
+    padding: 30px;
+    color: white;
+    font-size: 3em;
+    display: block;
+    transition: all .3s ease-in-out;
+}
+    nav a:hover {
+     color:white;
+     cursor: pointer;
+     transform: scale(1.5);
+    }  
+    nav a:first-child {
+    margin-top: 75px;
+    }
+    nav a.active{
+        color: #ea00d9;
+    }
+
+
+.rightbox {
+    width:60%;
+    margin-left: 27%;
+    }
+
+    .tabShow {
+        transition: all .5s ease-in;
+        width: 80%;
+        
+        }
+
+h1 {
+    color: white;
+    font-size: 3em;
+    margin-top: 40px;
+    margin-bottom: 35px;
+
+}
+h2 {
+    color: white;
+    text-transform:uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-left: 2px;
+    margin-top: 10px;
+
+}
+
+input, p {
+    border: 0;
+    border-bottom: 1px solid dodgerblue;
+    width: 80%;
+    font-size: 1em;
+    padding: 7px 0;
+    color: black;
+    outline: none;
+}
+
+span{
+    font-size: .7em;
+    color:#777;
+}
+.btn {
+    text-transform: uppercase;
+    font-size: 15px;
+    border: 0;
+    color: white;
+    background:  #711c91;
+    padding: 7px 15px;
+    box-shadow: 0px 2px 4px 0px dodgerblue;
+    cursor: pointer;
+    margin-top:15px;
+    }
+
+ .tabShow {
+     display: none;
+ } 

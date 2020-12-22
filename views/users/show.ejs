@@ -71,8 +71,7 @@
                     <fieldset>
                        <legend>Category</legend>
                        <p>
-                          <label>Select Category</label>
-                          <select id = "category">
+                            <select id = "category">
                             <option value = "1">graphical</option>
                             <option value = "2">functional</option>
                             <option value = "3">performance</option>
@@ -85,8 +84,7 @@
                     <fieldset>
                        <legend>Severity</legend>
                        <p>
-                          <label>Select Severity</label>
-                          <select id = "severity">
+                           <select id = "severity">
                             <option value = "1">low</option>
                             <option value = "2">medium</option>
                             <option value = "3">high</option>
@@ -100,8 +98,7 @@
                     <fieldset>
                        <legend>frequency</legend>
                        <p>
-                          <label>Select Frequency</label>
-                          <select id = "frequency">
+                           <select id = "frequency">
                             <option value = "1">1-2</option>
                             <option value = "2">2-3</option>
                             <option value = "3">3-4</option>
@@ -111,22 +108,29 @@
                     </fieldset>
                  </form>
 
-                 <label for="start">Date Occured:</label>
-
-                 <input type="date" id="start" name="trip-start"
+                 <form>
+                    <fieldset>
+                       <legend>Date Occured</legend>
+                 
+                       <input type="date" id="start" name="trip-start"
                         value="2018-07-22"
                         min="2018-01-01" max="2018-12-31">
+                    </fieldset>
+                </form>
 
                  <form>
                     <fieldset>
                        <legend>System</legend>
                        <p>
-                          <label>Select System</label>
-                          <select id = "system">
-                            <option value = "1">one</option>
-                            <option value = "2">two</option>
-                            <option value = "3">three</option>
-                            <option value = "4">four</option>
+                           <select id = "system">
+                            <option value = "1">XboxOne</option>
+                            <option value = "2">XboxOne S</option>
+                            <option value = "3">Xbox Series X</option>
+                            <option value = "4">Xbox Series S</option>
+                            <option value = "5">PS4</option>
+                            <option value = "6">PS4 Pro</option>
+                            <option value = "7">PS5</option>
+                            <option value = "8">PC</option>
                           </select>
                        </p>
                     </fieldset>
