@@ -28,8 +28,6 @@
 
 
 <body>
-    <h1>User Profile</h1>
-
     
 
     <div class="navbar">
@@ -40,10 +38,51 @@
         
       </div>  
       
-    <div class="design">
-        <div id="navtop"></div>
-        <div id="navbottom"></div>
-    </div>
+        <div class="design">
+            <div id="navtop"></div>
+            <div id="navbottom"></div>
+        </div>
 
+    <main>
+    
+        <aside class="sidebar">
+            <h1>My Profile<span class="close"><i class="fa fa-times"></i></span></h1>
+            <div class="user-pic">
+                <img width="100" src="image/neon-1608315302167-8777.jpg" alt="">
+            </div>
+            <div class="user-info">
+                <span class="username">Username</span>
+                <span class="email">example@example.com</span>
+            </div>
+            <div class="side-nav">
+                <h2>General</h2>
+                <nav>
+                    <ul>
+                        <li class="active" onclick="show(0)">
+                            <span><i class="fa fa-pen"></i></span></li>
+                            <h3>Posts</h3>
+                            
+    
+                        <li onclick="show(1)">
+                            <span><i class="fa fa-comments"></i></span></li>
+                                
+                            <h3>Messages</h3>
+                        <li onclick="show(2)">
+                            <span><i class="fa fa-cog"></i></span></li>
+                        <h3>Account Settings</h3>
+                    </ul>
+                </nav>
+            </div>
+            <div class="bt-nav">
+                <ul>
+    
+                </ul>
+            </div>
+        </aside>
+        
+    
+            
+    
+    </main>
 </body>
 </html>
