@@ -6,9 +6,10 @@
     <title>Post Entry</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="/public/styles/new.css">
+    <link rel="stylesheet" href="public/styles/userProfile.css">
+    <link rel="stylesheet" href="public/styles/show.css">
     <!-- Link Scripts -->
-    <script src="public/scripts/new.js"></script>
+    <script src="public/scripts/app.js"></script>
     <!-- Link Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
@@ -32,7 +33,7 @@
 <body>
     <h1>Post</h1>
 
-    <div class="background" style="background-image: url(images/neon-1608315302167-8777.jpg);"></div>
+    
     
 
     <div class="navbar">
@@ -50,38 +51,38 @@
 
     <main>
       <div class="post">
-         <form action="/action_page.php">
+         <form action="/reports/<%= report._id %>?_method=PUT" method="POST" id="edit--form">
              <h2>Post</h2>
          <div class="row">
              <div class="column"> 
              <div class="input-container">
-                <input class="input-field" type="text" placeholder="Title" name="title">
+                <input class="input-field" type="text" placeholder="Title" size="55" value="<%= report.title %>" name="title">
              </div>
           <div class="response"> 
              <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Actual Outcome" name="outcome">
+                 <textarea class="input-field" type="text" placeholder="Actual Outcome" rows="2" cols="50" value="" name="actualOutcome"><%= report.actualOutcome  %></textarea>
               </div>
 
               <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Expected Outcome" name="expoutcome">
+                 <textarea class="input-field" type="text" placeholder="Expected Outcome" rows="2" cols="50" value="" name="expectedOutcome"><%= report.expectedOutcome %></textarea>
               </div>
 
               <div class="input-container">
-                 <input class="input-field" type="text" placeholder="Reproduce" name="reproduce">
+                 <textarea class="input-field" type="text" placeholder="Reproduce" rows="7" cols="50" value="" name="description"><%= report.description %></textarea>
               </div>
               </form>
              </div>
          </div>
              
-         <div class="column" style="text-align: center">
+         <aside class="column" style="text-align: center">
              <form>
                  <fieldset>
                     <legend>Category</legend>
                     <p>
                          <select id = "category">
-                         <option value = "1">graphical</option>
-                         <option value = "2">functional</option>
-                         <option value = "3">performance</option>
+                         <option value = "1"<% if (report.category === "graphical") { %> default <% } %>>GraphicaL</option>
+                         <option value = "2"<% if (report.category === "functional") { %> default <% } %>>>Functional</option>
+                         <option value = "3"<% if (report.category === "permormance") { %> default <% } %>>Performance</option>
                        </select>
                     </p>
                  </fieldset>
@@ -92,10 +93,10 @@
                     <legend>Severity</legend>
                     <p>
                         <select id = "severity">
-                         <option value = "1">low</option>
-                         <option value = "2">medium</option>
-                         <option value = "3">high</option>
-                         <option value = "4">critical</option>
+                         <option value = "1"<% if (report.severity === "low") { %> default <% } %>>low</option>
+                         <option value = "2" <% if (report.severity === "medium") { %> default <% } %>>medium</option>
+                         <option value = "3"<% if (report.severity === "high") { %> default <% } %>>high</option>
+                         <option value = "4"<% if (report.severity === "critical") { %> default <% } %>>critical</option>
                        </select>
                     </p>
                  </fieldset>
@@ -106,10 +107,10 @@
                     <legend>frequency</legend>
                     <p>
                         <select id = "frequency">
-                         <option value = "1">1-2</option>
-                         <option value = "2">2-3</option>
-                         <option value = "3">3-4</option>
-                         <option value = "4">5 or more</option>
+                         <option value = "0-1 time"<% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 times</option>
+                         <option value = "1-2 times"<% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times></option>
+                         <option value = "<5 times"<% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
+                         <option value = "<5 times"<% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
                        </select>
                     </p>
                  </fieldset>
@@ -130,21 +131,27 @@
                     <legend>System</legend>
                     <p>
                         <select id = "system">
-                         <option value = "1">XboxOne</option>
-                         <option value = "2">XboxOne S</option>
-                         <option value = "3">Xbox Series X</option>
-                         <option value = "4">Xbox Series S</option>
-                         <option value = "5">PS4</option>
-                         <option value = "6">PS4 Pro</option>
-                         <option value = "7">PS5</option>
-                         <option value = "8">PC</option>
+                         <option value = "PC" <% if (report.system.sysType === "PC") { %> default <% } %></option>
+                         <option value = "XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %></option>
+                         <option value = "XboxOne S" <% if (report.system.sysType === "XboxOne S") { %> default <% } %>>XboxOne S</option>
+                         <option value = "XboxOne X" <% if (report.system.sysType === "XboxOne X") { %> default <% } %>>XboxOne X</option>
+                         <option value = "Xbox Series X" <% if (report.system.sysType === "Xbox Series X") { %> default <% } %>>Xbox Series X</option>
+                         <option value = "Xbox Series S" <% if (report.system.sysType === "Xbox Series S") { %> default <% } %>>Xbox Series S</option>
+                         <option value = "PS4" <% if (report.system.sysType === "PS4") { %> default <% } %>>PS4</option>
+                         <option value = "PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %></option>
+                          <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
                        </select>
-                    </p>
+                    <p>Graphics Card</p>
+                <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+                <p>Operating System</p>
+                <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
+                <p>CPU</p>
+                <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
                  </fieldset>
               </form>
             
              <button type="submit" class="btn">Post</button>
-         </div>    
+            </aside>    
      </div> 
          </div> 
      </main>
