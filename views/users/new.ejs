@@ -107,10 +107,10 @@
                     <legend>frequency</legend>
                     <p>
                         <select id = "frequency">
-                         <option value = "1">1-2</option>
-                         <option value = "2">2-3</option>
-                         <option value = "3">3-4</option>
-                         <option value = "4">5 or more</option>
+                         <option value = "0-1"<% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 times</option>
+                         <option value = "1-2"<% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times></option>
+                         <option value = "<5"<% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
+                         <option value = "<5"<% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
                        </select>
                     </p>
                  </fieldset>
@@ -131,16 +131,23 @@
                     <legend>System</legend>
                     <p>
                         <select id = "system">
-                         <option value = "1">XboxOne</option>
-                         <option value = "2">XboxOne S</option>
-                         <option value = "3">Xbox Series X</option>
-                         <option value = "4">Xbox Series S</option>
-                         <option value = "5">PS4</option>
-                         <option value = "6">PS4 Pro</option>
-                         <option value = "7">PS5</option>
-                         <option value = "8">PC</option>
+                         <option value = "PC" <% if (report.system.sysType === "PC") { %> default <% } %></option>
+                         <option value = "XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %></option>
+                         <option value = "XboxOne S" <% if (report.system.sysType === "XboxOne S") { %> default <% } %>>XboxOne S</option>
+                         <option value = "XboxOne X" <% if (report.system.sysType === "XboxOne X") { %> default <% } %>>XboxOne X</option>
+                         <option value = "Xbox Series X" <% if (report.system.sysType === "Xbox Series X") { %> default <% } %>>Xbox Series X</option>
+                         <option value = "Xbox Series S" <% if (report.system.sysType === "Xbox Series S") { %> default <% } %>>Xbox Series S</option>
+                         <option value = "PS4" <% if (report.system.sysType === "PS4") { %> default <% } %>>PS4</option>
+                         <option value = "PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %></option>
+                          <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
                        </select>
-                    </p>
+                       
+                       <p>Graphics Card</p>
+                       <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+                       <p>Operating System</p>
+                       <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
+                       <p>CPU</p>
+                       <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
                  </fieldset>
               </form>
             
