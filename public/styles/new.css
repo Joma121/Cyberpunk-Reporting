@@ -1,6 +1,6 @@
 body, html{
     margin: 0;
-    background: url(image/backgroundimg.jpg);
+    background: url(public/images/backgroundimg.jpg);
     background-position: fixed;
     background-repeat: no-repeat;
     background-size: cover; 
