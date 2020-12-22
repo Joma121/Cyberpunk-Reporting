@@ -51,20 +51,6 @@
         <div id="navbottom"></div>
     </div>
 
-    <body>
-        <div class="navbar">
-            <a href="#message"><i class="fas fa-envelope"></i></a>
-            <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-            <a href="#home"><i class="fas fa-home"></i></a>
-            <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-        </div>  
-      
-        <div class="design">
-            <div id="navtop"></div>
-            <div id="navbottom"></div>
-        </div>
-
         <main>
             <div class="container">
                 <div class="leftbox">
@@ -82,42 +68,27 @@
                 
                 <div class="rightbox">
                     <div class="profile tabShow">
-                        <h1>Personal Info</h1>
-                        <h2>Name</h2>
-                        <input type="text" class="input" value="Enter Name">
-                        <h2>Birthday</h2>
-                        <input type="text" class="input" value="00/00/0000">
-                        <h2>Location</h2>
-                        <select name="country" class="countries" id="countryId">
-                            <option value="">Select Country</option>
-                        </select>
-                        <select name="state" class="states" id="stateId">
-                            <option value="">Select State</option>
-                        </select>
-                        <select name="city" class="cities" id="cityId">
-                            <option value="">Select City</option>
-                        </select>
-                        <h2>Blurb</h2>
-                        <input type="text" class="input" value="Tell me about you">
-                        
-                        
-                       
-    
-                        <button class="btn">Update</button>
+                        <form action="/users/<%= user._id %>?_method=PUT">
+                            <h1>Personal Info</h1>
+                            <h2><%= user.username %></h2>
+                            <h3>Location</h3>
+                            <input type="text" name="location" <% if(user.location) { %> value="<%= user.location %>" <% } else { %> placeholder="City, State, Country" <% } %>>
+                            <h3>Blurb</h3>
+                            <textarea type="text" rows="4" cols="40" class="input" <% if(!user.blurb) { %> placeholder="A bit about you"><% } else { %>><%= user.blurb %><% } %></textarea>
+                            
+                            <input type="submit" class="btn" value="Update">
+                        </form>
                     </div>
     
                     <div class="accountSetting tabShow">
-                        <h1>Profile Settings</h1>
-                        <h2>Username</h2>
-                        <input type="text" class="username" value="Username">
-                        <h2>E-mail</h2>
-                        <input type="text" class="email" value="example@example.com">
-                        <h2>Password</h2>
-                        <input type="password" class="password" value="Enter Password">
-                        <h2>Block</h2>
-                        <input type="text" class="block" value="block usernames">
+                        <h1>Login Settings</h1>
+                        <h3>E-mail</h3>
+                        <input type="text" class="email" value="<%= user.email %>">
+                        <h3>New Password</h3>
+                        <p>Leave empty to keep current password</p>
+                        <input type="password" class="password" value="">
                         
-                        <button class="btn">Update</button>
+                        <input type="submit" class="btn" value="Update">
                     </div>
                 </div>
             </div>
