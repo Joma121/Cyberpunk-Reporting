@@ -25,6 +25,9 @@ router.get("/", async (req, res) => {
 // Edit
 router.get("/settings", authRequired, async (req, res) => {
     try {
+        if (req.body.password === "") {
+            req.body.password = user.password;
+        } 
         const foundUser = await db.User.findById(req.session.currentUser.id);
         const context = { user: foundUser };
 
