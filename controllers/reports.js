@@ -30,7 +30,7 @@ router.get("/new", async (req, res) => {
 // Show
 router.get("/:id", async (req, res) => {
     try {
-        const foundReport = await db.Report.findById(req.params.id).populate("user");
+        const foundReport = await db.Report.findById(req.params.id).populate("createdBy");
         const context = {report: foundReport};
         return res.render("reports/show", context)
     } catch (err) {
