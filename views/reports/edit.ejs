@@ -8,114 +8,133 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/app.js" defer></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
 </head>
 
 <header>
-    
-    <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="/images/cp logo-2077.png">
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
     </div>
-
-    <div class="bar"></div>
+  </header>
+<body>
+    <div class="bar">
         <div id="top"></div>
         <div id="bottom"></div>
-
-  </header>
-
-
-<body>
-    <h1>Edit Report</h1>
-
-      
-
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>Edit Report</h1>
+        </section>
+        <section class="navbar__links">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+            <form action="/logout?_method=DELETE" method="POST"">
+            <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+            </form>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+            <% } %>     
+        </section>   
+    </nav>  
       
     <div class="design">
         <div id="navtop"></div>
         <div id="navbottom"></div>
-    </div>
+    </div>    
 
     <main>
-       <div class="edit">
+       <div class="edit--report">
         <form action="/reports/<%= report._id %>?_method=PUT" method="POST" id="edit--form">
             <!-- <h2>Modify Report</h2>  Seems superflous with the h1 header above nav-->
-            <section class="input-container">
-               <p>Title</p><p><input class="input-field" type="text" size="55" value="<%= report.title %>" name="title"></p>
-               <p>Actual Outcome</p><p><textarea class="input-field" rows="2" cols="50" value="" name="actualOutcome"><%= report.actualOutcome  %></textarea></p>
-               <p>Expected Outcome</p><p><textarea class="input-field" rows="2" cols="50" value="" name="expectedOutcome"><%= report.expectedOutcome %></textarea></p>
-               <p>What Happened / How to Reproduce</p><p><textarea class="input-field" rows="7" cols="50" value="" name="description"><%= report.description %></textarea></p>
+            <section class="edit--report__textfields">
+               <p>Title</p><p><input class="input-field" type="text" size="20" value="<%= report.title %>" name="title"></p>
+               <p>Actual Outcome</p><p><textarea class="input-field" rows="3" cols="30" value="" name="actualOutcome"><%= report.actualOutcome  %></textarea></p>
+               <p>Expected Outcome</p><p><textarea class="input-field" rows="3" cols="30" value="" name="expectedOutcome"><%= report.expectedOutcome %></textarea></p>
+               <p>What Happened / How to Reproduce</p><p><textarea class="input-field" rows="10" cols="30" value="" name="description"><%= report.description %></textarea></p>
             </section>
 
-            <aside>
+            <aside class="edit--report__selectors">
 <!-- picturing this to the right of the above section like a sidebar -->
-                <p>Category</p> 
+<fieldset>
+    <legend><i class="fas fa-tag"></i>  Category</legend>
+    <p>
                 <select name="category" id="" required>
                     <option value="graphical" <% if (report.category === "graphical") { %> default <% } %>>Graphical</option>
                     <option value="functional" <% if (report.category === "functional") { %> default <% } %>>Functional</option>
                     <option value="permormance" <% if (report.category === "permormance") { %> default <% } %>>Permormance</option>
                 </select>
-
-                <p>Severity</p>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend><i class="fas fa-exclamation-triangle"></i> Severity</legend>
+            <p>
                 <select name="severity" id="" required>
                     <option value="critical" <% if (report.severity === "critical") { %> default <% } %>>Critical</option>
                     <option value="high" <% if (report.severity === "high") { %> default <% } %>>High</option>
                     <option value="medium" <% if (report.severity === "medium") { %> default <% } %>>Medium</option>
                     <option value="low" <% if (report.severity === "low") { %> default <% } %>>Low</option>
                 </select>
-
-                <p>Frequency</p>
+            </p>
+         </fieldset>
+         <fieldset>
+            <legend><i class="fas fa-wave-square"></i> Frequency</legend>
+            <p>
                 <select name="frequency" id="">
                     <option value="0-1 time" <% if (report.frequency === "0-1 time") { %> default <% } %>>0-1 time</option>
                     <option value="1-2 times" <% if (report.frequency === "1-2 times") { %> default <% } %>>1-2 times</option>
                     <option value="<5 times" <% if (report.frequency === "<5 times") { %> default <% } %>>&lt;5 times</option>
                     <option value=">5 times" <% if (report.frequency === ">5 times") { %> default <% } %>>&gt;5 times</option>
                 </select>
-
-                <p>Occurance</p>
-                <input type="datetime" name="occuranceDT" id="">
-                <!-- Can add a datetime picker-->
-
-                <p>System</p>
-                <select name="system[sysType]" id="">
-                    <option value="PC" <% if (report.system.sysType === "PC") { %> default <% } %>>PC</option>
-                    <option value="XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %>>XboxOne</option>
-                    <option value="XboxOne S" <% if (report.system.sysType === "XboxOne S") { %> default <% } %>>XboxOne S</option>
-                    <option value="XboxOne X" <% if (report.system.sysType === "XboxOne X") { %> default <% } %>>XboxOne X</option>
-                    <option value="Xbox Series X" <% if (report.system.sysType === "Xbox Series X") { %> default <% } %>>Xbox Series X</option>
-                    <option value="Xbox Series S" <% if (report.system.sysType === "Xbox Series S") { %> default <% } %>>Xbox Series S</option>
-                    <option value="PS4" <% if (report.system.sysType === "PS4") { %> default <% } %>>PS4</option>
-                    <option value="PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %>>PS4 Pro</option>
-                    <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
-                </select>
-                <!-- We should hide/show these with app.js, only show on "PC" of above selector
-                    this function should also be present in the create page -->
-                <p>Graphics Card</p>
-                <input type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
-                <p>Operating System</p>
-                <input type="text" name="system[os]" id="" value="<%= report.system.os %>">
-                <p>CPU</p>
-                <input type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
-
-            </aside>
-          </form>
+            </p>
+         </fieldset>
+         <fieldset>
+            <legend><i class="fas fa-redo"></i> Date Occured</legend>
+      <p>
+            <input 
+            type="date" id="start" name="trip-start"
+            placeholder="2020-12-09"
+            min="2020-12-09" 
+            <% if (report.occuranceDT) { %> value="<%= report.occuranceDT %>" <% } %>>
+      </p>
+         </fieldset>
+         <fieldset class="edit--report__system">
+            <legend><i class="fas fa-desktop"></i> System</legend>
+            <p>
+             <select name="system[sysType]" id="system">
+                 <option value="PC" <% if (report.system.sysType === "PC") { %> default <% } %>>PC</option>
+                 <option value="XboxOne" <% if (report.system.sysType === "XboxOne") { %> default <% } %>>XboxOne</option>
+                 <option value="XboxOne S" <% if (report.system.sysType === "XboxOne S") { %> default <% } %>>XboxOne S</option>
+                 <option value="XboxOne X" <% if (report.system.sysType === "XboxOne X") { %> default <% } %>>XboxOne X</option>
+                 <option value="Xbox Series X" <% if (report.system.sysType === "Xbox Series X") { %> default <% } %>>Xbox Series X</option>
+                 <option value="Xbox Series S" <% if (report.system.sysType === "Xbox Series S") { %> default <% } %>>Xbox Series S</option>
+                 <option value="PS4" <% if (report.system.sysType === "PS4") { %> default <% } %>>PS4</option>
+                 <option value="PS4 Pro" <% if (report.system.sysType === "PS4 Pro") { %> default <% } %>>PS4 Pro</option>
+                 <option value="PS5" <% if (report.system.sysType === "PS5") { %> default <% } %>>PS5</option>
+             </select>
+            </p>
+             <p class="pc--specs">Graphics Card</p>
+             <input class="pc--specs" type="text" name="system[gfxCard]" id="" value="<%= report.system.gfxCard %>">
+             <p class="pc--specs">Operating System</p>
+             <input class="pc--specs" type="text" name="system[os]" id="" value="<%= report.system.os %>">
+             <p class="pc--specs">CPU</p>
+             <input class="pc--specs" type="text" name="system[cpu]" id="" value="<%= report.system.cpu %>">
+         </fieldset>
+            </aside> 
+        </form>
           <section class="formbuttons">
-              <!-- maybe cancel off to the left with the others to the right -->
-                <input type="button" class="btn" value="Cancel" form="cancel--form">
-                <!-- delete should be a color that makes it pop to reduce accidental presses -->
-                <input type="submit" class="btn" value="Delete" form="delete--form">
+                <input type="submit" class="btn" value="Cancel" form="cancel--form">
+                <input type="submit" class="btn" value="Delete" form="delete--form" id="delete--btn">
                 <input type="submit" class="btn" value="Edit" form="edit--form">
         </section>
-        <form action="/reports/<%= report._id %>?_method=DELETE" method="POST" id="delet--form">
+        <form action="/reports/<%= report._id %>?_method=DELETE" method="POST" id="delete--form">
         </form>
         <form action="/reports/<%= report._id %>" method="GET" id="cancel--form">
         </form>

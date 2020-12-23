@@ -10,9 +10,8 @@ const db = require("../models");
 // Index
 router.get("/", async (req, res) => {
     try {
-        const allReports = await db.Report.find();
+        const allReports = await db.Report.find().populate("createdBy");
         const context = {reports: allReports};
-        
         return res.render("reports/index", context);
     } catch (err) {
         return res.send(err);
@@ -31,7 +30,7 @@ router.get("/new", async (req, res) => {
 // Show
 router.get("/:id", async (req, res) => {
     try {
-        const foundReport = await db.Report.findById(req.params.id).populate("user");
+        const foundReport = await db.Report.findById(req.params.id).populate("createdBy");
         const context = {report: foundReport};
         return res.render("reports/show", context)
     } catch (err) {
@@ -83,7 +82,6 @@ router.put("/:id", authRequired, async (req, res) => {
                 runValidators: true
             },
         )
-        console.log(updatedReport);
         return res.redirect(`/reports/${updatedReport._id}`);
     } catch (err) {
         return res.send(err);

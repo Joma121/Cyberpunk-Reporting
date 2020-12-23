@@ -6,9 +6,9 @@
     <title>Login</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="public/styles/login.css">
+    <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
-    <script src="public/scripts/login.js"></script>
+    <script src="/scripts/app.js" defer></script>
     <!-- Link Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
@@ -17,35 +17,38 @@
 </head>
 
 <header>
-    
-    <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="images/cp logo-2077.png">
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
     </div>
-
-    <div class="bar"></div>
+  </header>
+<body>
+    <div class="bar">
         <div id="top"></div>
         <div id="bottom"></div>
-
-  </header>
-
-
-<body>
-    <h1>Login</h1>
-
-      
-
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>Login</h1>
+        </section>
+        <section class="navbar__links">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+            <form action="/logout?_method=DELETE" method="POST"">
+            <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+            </form>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+            <% } %>     
+        </section>   
+    </nav>  
       
     <div class="design">
         <div id="navtop"></div>
         <div id="navbottom"></div>
-    </div>
+    </div>   
 
     <main>
        <div class="login">
@@ -63,6 +66,7 @@
             </div>
           
             <button type="submit" class="btn">Login</button>
+            <p>Not already a member? <a href="/register">Register Here</a></p>
           </form>
         </div> 
     </main>

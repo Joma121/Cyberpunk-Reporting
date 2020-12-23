@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title></title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="public/styles/userProfile.css">
-    <link rel="stylesheet" href="public/styles/profileCard.css">
+    <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
-    <script src="public/scripts/app.js"></script>
+    <script src="/scripts/app.js" defer></script>
     <!-- Link Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
@@ -19,13 +18,12 @@
 
 <header>
     
-    <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="public/images/cp logo-2077.png">
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
     </div>
 
-    <div class="bar"></div>
-        <div id="top"></div>
-        <div id="bottom"></div>
+    
 
   </header>
 
@@ -33,118 +31,99 @@
 <body>
     
 
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
+    <div class="bar">
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>User Profile</h1>
+        </section>
+        <section class="navbar__links">
+        <a href="/"><i class="fas fa-home"></i></a>
+        <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+        <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+        <form action="/logout?_method=DELETE" method="POST"">
+         <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+         </form>
+           <% } else { %>
+            <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+         <% } %>     
+        </section>   
+           </nav>  
       
-        <div class="design">
-            <div id="navtop"></div>
-            <div id="navbottom"></div>
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>   
+
+    <aside class="profile">
+        <div class="profile__icon">
+            <i class="fas fa-user-circle"></i>
         </div>
+        <h1><%= viewUser.username %></h1>
+        <div class="profile__info">
+            <h3>About Me</h3>
+            <h4>Location</h4>
+            <p><%= viewUser.location %></p>
+            <h4>Blurb</h4>
+            <p class="profile__info--blurb"><%= viewUser.blurb %></p>
+        </div>
+        <% if (user) { %>
+            <% if (viewUser._id == user.id) { %>
+            <div class="profile__edit">
+                <a href="/users/settings">Edit Profile</a>
+            </div>
+            <% } %>
+        <% } %>
+    </aside>
+
 
     <main>
-   
-    <aside class="sidebar">
-        <h1>My Profile<span class="close"><i class="fa fa-times"></i></span></h1>
-        <div class="user-pic">
-            <img width="100" src="image/neon-1608315302167-8777.jpg" alt="">
-        </div>
-        <div class="user-info">
-            <span class="username">Username</span>
-            <span class="email">example@example.com</span>
-        </div>
-        <div class="side-nav">
-            
-            <nav>
-                <ul>
 
-                    <li onclick="show(1)">
-                        <span><i class="fa fa-user"></i></span>
-                        <h3>About Me</h3>
-                    </li>
-
-                    <li  onclick="show(2)">
-                        <span><i class="fa fa-pen"></i></span>
-                        <h3>Posts</h3>
-                    </li>
-                        
-                      
-                    <li onclick="show(3)">
-                        <span><i class="fa fa-comments"></i></span>
-                        <h3>Messages</h3>
-                    </li>
-                            
-                        
-                    <li onclick="show(0)">
-                        <button><i class="fa fa-cog"></i></button>
-                        <h3>Account Settings</h3>
-                    </li>
-                     
-                    
-                </ul>
-            </nav>
-        </div>
-        
-        </div>
-    </aside>
-    <div class="main">
-        <section class="profile tabs">
-            
-        </section>
-        <section class="tabs">
-            <h1>About Me</h1>
-            <h3>Location</h3>
-            <p><%= user.location %></p>
-            <h3>Blurb</h3>
-            <p class="text"><%= user.blurb %></p>
-        </section>
-
-        <section class="tabs">
-            <h1>Posts</h1>
-            <p class="text">Here are your previous posts</p>
-            <% user.reports.forEach(report => { %>
-                <article class="report">
-                    <section class="report-header">
-                        <section class="report--header__toprow">
-                            <p class="report--header__bottrow__username"><%= report.createdBy.username %></p>
-                            <p class="report--header__bottrow__category"><%= report.category %></p>
-                            <p class="report--header__bottrow__severity"><%= report.severity %></p>
-                            <p class="report--header__bottrow__system"><%= report.system.sysType %></p>
-                        </section>
-                        <section class="report--header__bottrow">
-                            <p class="report--header__bottrow__title"><%= report.title %></p>
+        <% viewUser.reports.forEach(report => { %>
+        <article class="report">
+            <section class="report--main">
+                <section class="report--header">
+                    <section class="report--header__toprow">
+                        <p class="report--header__toprow__title"><a href="/reports/<%= report._id %>"><%= report.title %></a></p>
+                 
+                    </section>
+                    <section class="report--header__bottrow">
+                        <p class="report--header__bottrow__category"><i class="fas fa-tag"></i> <%= report.category %></p>
+                        <p class="report--header__bottrow__severity"><i class="fas fa-exclamation-triangle"></i> <%= report.severity %></p>
+                        <p class="report--header__bottrow__system"><i class="fas fa-desktop"></i> <%= report.system.sysType %></p>
+                        <p class="report--header__bottrow__frequency"><i class="fas fa-wave-square"></i> <%= report.frequency %></p>
+                        <% if (report.occuranceDT) { %>
                             <p class="report--header__bottrow__occurance">
-                                <% if (report.occuranceDT) { %>
-                                    <%= report.occuranceDT.toLocaleDateString(); %>
-                                <% } %>
+                                <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleDateString(); %>
                             </p>
-                            <p class="report--header__bottrow__frequency"><%= report.frequency %></p>
-                        </section>
+                        <% } %>
                     </section>
-                    <section class="report--body">
-                        <p class="report--body__actual"><%= report.actualOutcome %></p>
-                        <p class="report--body__expected"><%= report.expectedOutcome %></p>
-                        <p class="report--body__description"><%= report.description %></p>
-                    </section>
-                    <aside class="report--body__aside">
-                        <p>
-                            <% if(report.createdBy._id == user.id) { %>
-                            <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
-                            <% } %>
-                        </p>
-                        <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
-                        <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
-                    </aside>
-                </article>
-            
-            <% }) %>
-        </section>
-        
-    </div>
+                </section>
+                <section class="report--body">
+                    <p class="report--body__actual"><em>Issue:</em> <%= report.actualOutcome %></p>
+                    <p class="report--body__expected"><em>Expected:</em> <%= report.expectedOutcome %></p>
+                    <p class="report--body__description"> <%= report.description %></p>  
+                </section>
+            </section>
+    
+            <aside class="report--body__aside">
+                <p>
+                    <% if (user) { %>
+                        <% if(report.createdBy._id == user.id) { %>
+                        <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
+                        <% } %>
+                    <% } %>
+                </p>
+                <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
+                <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
+            </aside>  
+        </article>
+    
+        <% }) %>
+    </main>
 
         
 

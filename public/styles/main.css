@@ -1,10 +1,10 @@
 body, html{
     margin: 0;
-    background: url(public/images/backgroundimg.jpg);
-    background-position: fixed;
+    padding: 0;
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
-    position: cover;
     background-color: #091833;
     color: #ddd;
     background-size: 300vh;
@@ -12,41 +12,37 @@ body, html{
 
 /*Header*/
 header {
-    position: fixed;
     top: 0;
     left: 0;
-    color: white;
-    height: 23%;
+    color: rgba(158, 189, 130, 1);
     width: 100%;
-    padding: 1px;
     background:#F2E205;
+    display:flex;
+    justify-content: center;
     
   }
-    .logo {
-        position: flex;
-    }
-
-
+.logo {
+        display: flex;
+}
+.logo h1 {
+    align-self: center;
+    text-shadow: -1px -1px 1px white, 1px 1px 1px black;
+}
 
     
 #top {
     overflow: hidden;
     background-color: white;
-    position: fixed; 
-    left: 0;
-    top: 0; 
     width: 100%; 
-    height: 5px;
+    height: .5px;
+    margin-top: 25px;
 }   
 
 #bottom {
     overflow: hidden;
     background-color: white;
-    position: fixed; 
-    left: 0;
-    top: 23%; 
     width: 100%; 
-    height: 5px;
+    height: .5px;
 }
 /*end of header*/
 
@@ -54,28 +50,40 @@ header {
 
 /*nav bar*/
 .navbar {
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    font-size: larger;
+    margin: 10px 0;
+}
+.navbar__location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    background-color: magenta;
+    box-shadow: 0 0 10px magenta;
+    margin: 0 10px;
+}
+.navbar__links {
+    display: flex;
     background-color: white;
-    position: fixed; 
-    left: 25%;
-    top: 27%; 
-    width: 74.8%; 
-    height: 30px;
+    background-color: rgb(10, 189, 198);
+    box-shadow: 0 0 10px rgb(10, 189, 198);
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
     
     }
-
+    
 .navbar a{
-    color: rgb(71, 70, 70);
-    float: right;
-    right: 10%;
-    height: 100%;
+    color:white;
     padding-right: 1em;
-    padding-top: .5em;
+
 }
 #navtop {
-    overflow: hidden;
     background-color: white;
-    position: fixed; 
     top: 26%; 
     width: 100%; 
     height: .5px;
@@ -84,9 +92,414 @@ header {
 #navbottom {
     overflow: hidden;
     background-color: white;
-    position: fixed; 
     top: 31%; 
     width: 100%; 
     height: .5px;
 }
 /*end of navbar*/
+
+/* main */
+main {
+    position: relative;
+    margin-top: 100px;
+}
+/* -main- */
+
+/* report cards */
+.report {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: row;
+    width: 600px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:
+    0 0 7px rgb(10, 189, 198),  
+    inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.report::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+    
+}
+.report a {
+    color: magenta;
+    text-decoration: none;
+} 
+.report--main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+
+}
+.report--header {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+
+}
+.report--header__toprow {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0 10px;
+
+}
+.report--header__toprow p {
+    margin: 10px 0 0 10px;
+
+}
+.report--header__bottrow {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 0 10px;
+    font-size: small;
+
+}
+.report--body {
+    display:flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    margin: 0 0 0 10px;
+
+}
+.report--body p {
+    padding: 0 0 10px 0;
+    margin: 0;
+
+}
+.report--body__aside {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: right;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    z-index: 10;
+}
+.report--body__aside p {
+    padding-top: 10px;
+    margin: 0;
+}
+/* -report cards- */
+
+/* profile sidebar */
+.profile {
+    position: absolute;
+    flex-direction: column;
+    float: left;
+    width: 200px;
+    margin-top: 1px;
+    margin-left: 30px;
+    text-align: center;
+    background-color: purple;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    box-shadow:
+    inset 13px 0 6px -6px magenta,
+    inset -13px 0 6px -6px magenta;
+    z-index: 10;
+}
+.profile__icon {
+    font-size: 6em;
+}
+.profile__info--blurb {
+    padding: 0 5px;
+}
+.profile__edit {
+    margin-bottom: 20px;
+}
+.profile__edit a {
+    text-decoration: none;
+    color:rgb(10, 189, 198);
+}
+.profile__edit a:hover {
+    cursor: pointer;
+}
+/* -profile sidebar- */
+
+/* edit profile */
+.settings {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 600px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:
+    0 0 7px rgb(10, 189, 198),  
+    inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.settings::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.personal {
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+.account {
+    display: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+.settings form{
+    z-index: 10;
+}
+#personal {
+    color:rgb(10, 189, 198)
+}
+#account {
+    color:rgb(10, 189, 198)
+}
+#personal:hover {
+    cursor: pointer;
+}
+#account:hover {
+    cursor: pointer;
+}
+/* -edit profile- */
+
+/* login */
+.login {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 250px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:
+    0 0 7px rgb(10, 189, 198),  
+    inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.login::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.login form {
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+/* -login-*/
+
+/* register */
+.register {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 250px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:
+    0 0 7px rgb(10, 189, 198),  
+    inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.register::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.register form {
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+/* -register- */
+/* new report */
+.new--report {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 600px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:0 0 7px rgb(10, 189, 198),  inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.new--report::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.new--report form {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 11px;
+    padding-left: 10px;
+    z-index: 10;
+}
+.new--report form p {
+    margin: 0;
+    padding: 0;
+}
+.new--report__textfields {
+    display: flex;
+    flex-direction: column;
+}
+.new--report__selectors {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+#new--report--btn {
+    width: 6ch;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+/* -new report- */
+/* edit report */
+.edit--report {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 600px;
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:
+    0 0 7px rgb(10, 189, 198),  
+    inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.edit--report::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.edit--report form {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 11px;
+    padding-left: 10px;
+    z-index: 10;
+}
+.edit--report form p {
+    margin: 0;
+    padding: 0;
+}
+.edit--report__textfields {
+    display: flex;
+    flex-direction: column;
+}
+.edit--report__selectors {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.formbuttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    z-index: 10;
+}
+#delete--btn {
+    background-color: orangered;
+}

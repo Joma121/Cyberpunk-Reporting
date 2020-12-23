@@ -8,7 +8,7 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
-    <script src="public/scripts/register.js"></script>
+    <script src="/scripts/app.js" defer></script>
     <!-- Link Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
@@ -17,43 +17,46 @@
 </head>
 
 <header>
-    
-    <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="public/images/cp logo-2077.png">
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
     </div>
-
-    <div class="bar"></div>
+  </header>
+<body>
+    <div class="bar">
         <div id="top"></div>
         <div id="bottom"></div>
-
-  </header>
-
-
-<body>
-    <h1>Register</h1>
-
-      
-
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>Register</h1>
+        </section>
+        <section class="navbar__links">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+            <form action="/logout?_method=DELETE" method="POST"">
+            <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+            </form>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+            <% } %>     
+        </section>   
+    </nav>  
       
     <div class="design">
         <div id="navtop"></div>
         <div id="navbottom"></div>
-    </div>
+    </div>   
 
     <main>
        <div class="register">
-        <form action="/action_page.php">
-            <h2>Register Form</h2>
+        <form action="/register" method="POST">
+            <h2>Register</h2>
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <input class="input-field" type="text" placeholder="Username" name="usrnm">
+              <input class="input-field" type="text" placeholder="Username" name="username">
             </div>
           
             <div class="input-container">
@@ -63,10 +66,10 @@
           
             <div class="input-container">
               <i class="fa fa-key icon"></i>
-              <input class="input-field" type="password" placeholder="Password" name="psw">
+              <input class="input-field" type="password" placeholder="Password" name="password">
             </div>
           
-            <button type="submit" class="btn">Register</button>
+            <input type="submit" class="btn" value="Register">
           </form>
         </div> 
     </main>
