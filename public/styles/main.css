@@ -225,8 +225,11 @@ main {
 .profile__icon {
     font-size: 6em;
 }
-.profile__info--blurb p {
-    max-width: 20ch;
+.profile__info--blurb {
+    padding: 0 5px;
+}
+.profile__edit {
+    margin-bottom: 20px;
 }
 .profile__edit a {
     text-decoration: none;
@@ -271,6 +274,7 @@ main {
     margin-left: 11px;
     padding-left: 10px;
     padding-bottom: 10px;
+    z-index: 10;
 }
 .account {
     display: none;
@@ -279,6 +283,10 @@ main {
     margin-left: 11px;
     padding-left: 10px;
     padding-bottom: 10px;
+    z-index: 10;
+}
+.settings form{
+    z-index: 10;
 }
 #personal {
     color:rgb(10, 189, 198)
