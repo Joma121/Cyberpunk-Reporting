@@ -287,9 +287,22 @@ main {
     padding-bottom: 10px;
 }
 .account {
+    display: none;
     padding: 0;
     margin: 0;
     margin-left: 11px;
     padding-left: 10px;
     padding-bottom: 10px;
+}
+#personal {
+    color:rgb(10, 189, 198)
+}
+#account {
+    color:rgb(10, 189, 198)
+}
+#personal:hover {
+    cursor: pointer;
+}
+#account:hover {
+    cursor: pointer;
 }
