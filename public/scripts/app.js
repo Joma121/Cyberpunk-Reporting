@@ -55,3 +55,11 @@ $("#account").click(function(){
     $(".account").show();
     $(".personal").hide();
 })
+
+$("#system").change(function(){
+    if(this.value === 'PC'){
+        $(".pc--specs").prop('disabled', false);
+    } else {
+        $(".pc--specs").prop('disabled', true);
+    }
+})
