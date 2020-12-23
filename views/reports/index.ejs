@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Cyberpunk 2077 Reporting</title>
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
@@ -73,7 +73,7 @@
                 <p class="report--header__bottrow__frequency"><i class="fas fa-wave-square"></i> <%= report.frequency %></p>
                 <% if (report.occuranceDT) { %>
                     <p class="report--header__bottrow__occurance">
-                        <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleDateString(); %>
+                        <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleString('en-US', {timeZone: 'UTC', year: 'numeric', day: 'numeric', month: 'numeric'}); %>
                     </p>
                 <% } %>
             </section>

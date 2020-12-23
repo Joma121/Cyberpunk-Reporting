@@ -66,7 +66,7 @@
                 <p class="report--header__bottrow__frequency"><i class="fas fa-wave-square"></i> <%= report.frequency %></p>
                 <% if (report.occuranceDT) { %>
                     <p class="report--header__bottrow__occurance">
-                        <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleDateString(); %>
+                        <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleString('en-US', {timeZone: 'UTC', year: 'numeric', day: 'numeric', month: 'numeric'}); %>
                     </p>
                 <% } %>
             </section>

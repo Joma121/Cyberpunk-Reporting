@@ -95,10 +95,10 @@
                         <legend><i class="fas fa-redo"></i> Date Occured</legend>
                         <p>
                             <input 
-                            type="date" id="start" name="trip-start"
+                            type="date" id="start" name="occuranceDT"
                             placeholder="2020-12-09"
-                            min="2020-12-09" 
-                            <% if (report.occuranceDT) { %> value="<%= report.occuranceDT %>" <% } %>>
+                            min="2020-12-08" 
+                            <% if (report.occuranceDT) { %> value="<%- report.occuranceDT.toISOString().substr(0, 10)%>" <% } %>>
                         </p>
                     </fieldset>
                     <fieldset class="edit--report__system">
