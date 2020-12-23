@@ -41,7 +41,7 @@
         </section>
         <section class="navbar__links">
         <a href="/"><i class="fas fa-home"></i></a>
-         <% if (user.id) { %>
+        <% if (user) { %>
             <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
         <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
         <form action="/logout?_method=DELETE" method="POST"">
@@ -70,10 +70,12 @@
             <h4>Blurb</h4>
             <p class="profile__info--blurb"><%= viewUser.blurb %></p>
         </div>
-        <% if (viewUser._id == user.id) { %>
-        <div class="profile__edit">
-            <a href="/users/settings">Edit Profile</a>
-        </div>
+        <% if (user) { %>
+            <% if (viewUser._id == user.id) { %>
+            <div class="profile__edit">
+                <a href="/users/settings">Edit Profile</a>
+            </div>
+            <% } %>
         <% } %>
     </aside>
 
@@ -109,8 +111,10 @@
     
             <aside class="report--body__aside">
                 <p>
-                    <% if(report.createdBy._id == user.id) { %>
-                    <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
+                    <% if (user) { %>
+                        <% if(report.createdBy._id == user.id) { %>
+                        <a href="/reports/<%= report._id %>/edit ">EDIT</a>   
+                        <% } %>
                     <% } %>
                 </p>
                 <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
