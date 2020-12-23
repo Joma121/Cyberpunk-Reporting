@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/styles/main.css">
     <!-- Link Scripts -->
     <script src="/scripts/app.js" defer></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
@@ -16,59 +18,73 @@
 
 <header>
     
-    <div class="logo" style="position: flex">
-        <a href="#home"></a><img src="images/cp logo-2077.png">
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
     </div>
 
-    <div class="bar"></div>
-        <div id="top"></div>
-        <div id="bottom"></div>
+    
 
   </header>
 
 
 <body>
-    <h1></h1>
-
-    
-
-    <div class="navbar">
-        <a href="#message"><i class="fas fa-envelope"></i></a>
-        <a href="#post"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#home"><i class="fas fa-home"></i></a>
-        <a href="#profile"><i class="fas fa-user-circle"></i></a>
-        
-      </div>  
+    <div class="bar">
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>Reports</h1>
+        </section>
+        <section class="navbar__links">
+        <a href="/"><i class="fas fa-home"></i></a>
+         <% if (user.id) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+        <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+        <form action="/logout?_method=DELETE" method="POST"">
+         <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+         </form>
+           <% } else { %>
+            <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+         <% } %>     
+        </section>   
+           </nav>  
       
     <div class="design">
         <div id="navtop"></div>
         <div id="navbottom"></div>
     </div>
- 
-<% reports.forEach(report => { %>
+ <main>
+    <% reports.forEach(report => { %>
     <article class="report">
-        <section class="report-header">
+        <section class="report--main">
+        <section class="report--header">
             <section class="report--header__toprow">
-                <p class="report--header__bottrow__username"><%= report.createdBy.username %></p>
-                <p class="report--header__bottrow__category"><%= report.category %></p>
-                <p class="report--header__bottrow__severity"><%= report.severity %></p>
-                <p class="report--header__bottrow__system"><%= report.system.sysType %></p>
+                <p class="report--header__toprow__title"><a href="/reports/<%= report._id %>"><%= report.title %></a></p>
+                <p class="report--header__toprow__text"> - By </p>
+                <p class="report--header__toprow__username"><a href="/users/<%= report.createdBy._id %>"><%= report.createdBy.username %></a></p>
+                
             </section>
             <section class="report--header__bottrow">
-                <p class="report--header__bottrow__title"><%= report.title %></p>
-                <p class="report--header__bottrow__occurance">
-                    <% if (report.occuranceDT) { %>
-                        <%= report.occuranceDT.toLocaleDateString(); %>
-                    <% } %>
-                </p>
-                <p class="report--header__bottrow__frequency"><%= report.frequency %></p>
+                <p class="report--header__bottrow__category"><i class="fas fa-tag"></i> <%= report.category %></p>
+                <p class="report--header__bottrow__severity"><i class="fas fa-exclamation-triangle"></i> <%= report.severity %></p>
+                <p class="report--header__bottrow__system"><i class="fas fa-desktop"></i> <%= report.system.sysType %></p>
+                <p class="report--header__bottrow__frequency"><i class="fas fa-wave-square"></i> <%= report.frequency %></p>
+                <% if (report.occuranceDT) { %>
+                    <p class="report--header__bottrow__occurance">
+                        <i class="fas fa-redo"></i> <%= report.occuranceDT.toLocaleDateString(); %>
+                    </p>
+                <% } %>
+            </section>
+            </section>
+            <section class="report--body">
+                <p class="report--body__actual"><em>Issue:</em> <%= report.actualOutcome %></p>
+                <p class="report--body__expected"><em>Expected:</em> <%= report.expectedOutcome %></p>
+                <p class="report--body__description"> <%= report.description %></p>  
             </section>
         </section>
-        <section class="report--body">
-            <p class="report--body__actual"><%= report.actualOutcome %></p>
-            <p class="report--body__expected"><%= report.expectedOutcome %></p>
-            <p class="report--body__description"><%= report.description %></p>
-        </section>
+
         <aside class="report--body__aside">
             <p>
                 <% if(report.createdBy._id == user.id) { %>
@@ -77,10 +93,10 @@
             </p>
             <p class="report--body__aside__img"><img src="<%= report.imageLinks[0] %>" alt=""></p>
             <p class="report--body__aside__time"><%= report.createdAt.toLocaleDateString(); %></p>
-        </aside>
+        </aside>  
     </article>
 
-<% }) %>
-
+    <% }) %>
+</main>
 </body>
 </html>
