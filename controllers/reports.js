@@ -10,9 +10,9 @@ const db = require("../models");
 // Index
 router.get("/", async (req, res) => {
     try {
-        const allReports = await db.Report.find();
+        const allReports = await db.Report.find().populate("createdBy");
         const context = {reports: allReports};
-        
+        console.log(context);
         return res.render("reports/index", context);
     } catch (err) {
         return res.send(err);
