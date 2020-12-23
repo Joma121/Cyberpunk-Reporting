@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Report</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Link Scripts -->
+    <script src="/scripts/app.js" defer></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
+    </div>
+  </header>
+<body>
+    <div class="bar">
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>New Report</h1>
+        </section>
+        <section class="navbar__links">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+            <form action="/logout?_method=DELETE" method="POST"">
+            <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+            </form>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+            <% } %>     
+        </section>   
+    </nav>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>   
+
+    <main>
+      <div class="new--report">
+         <form action="/reports" method="POST" id="create--report">
+            <section class="new--report__textfields">
+               <p>Title</p><p><input class="input-field" type="text" placeholder="Title" size="20" name="title"></p>
+               <p>Actual Outcome</p><p><textarea class="input-field" type="text" placeholder="Brief Description" rows="3" cols="30" value="" name="actualOutcome"></textarea></p>
+               <p>Expected Outcome</p><p><textarea class="input-field" type="text" placeholder="Expected Outcome" rows="3" cols="30" value="" name="expectedOutcome"></textarea></p>
+               <p>What Happened / How to Reproduce</p><p><textarea class="input-field" type="text" placeholder="Steps to Reproduce" rows="10" cols="30" value="" name="description"></textarea></p>
+            </section>           
+            <aside class="new--report__selectors">
+               <fieldset>
+                  <legend><i class="fas fa-tag"></i>  Category</legend>
+                  <p>
+                        <select id="category" name="category">
+                        <option value="">Select Category</option>
+                        <option value = "graphical">Graphical</option>
+                        <option value = "functional">Functional</option>
+                        <option value = "permormance">Performance</option>
+                     </select>
+                  </p>
+               </fieldset>
+               <fieldset>
+                  <legend><i class="fas fa-exclamation-triangle"></i> Severity</legend>
+                  <p>
+                     <select id="severity" name="severity">
+                        <option value="">Select Severity</option>
+                        <option value = "low">low</option>
+                        <option value = "medium">medium</option>
+                        <option value = "high">high</option>
+                        <option value = "critical">critical</option>
+                     </select>
+                  </p>
+               </fieldset>
+               <fieldset>
+                  <legend><i class="fas fa-wave-square"></i> Frequency</legend>
+                  <p>
+                     <select id="frequency" name="frequency">
+                        <option value="">Select Frequency</option>
+                        <option value = "0-1 time">0-1 times</option>
+                        <option value = "1-2 times">1-2 times</option>
+                        <option value = "<5 times">&lt;5 times</option>
+                        <option value = ">5 times">&gt;5 times</option>
+                     </select>
+                  </p>
+               </fieldset>
+               <fieldset>
+                  <legend><i class="fas fa-redo"></i> Date Occured</legend>
+            
+                  <input type="date" id="start" name="occuranceDT"
+                  placeholder="2018-07-22"
+                  min="2020-12-09" >
+               </fieldset>
+               
+               <fieldset class="new--report__system">
+                  <legend><i class="fas fa-desktop"></i> System</legend>
+                  <p>
+                     <select id="system" name="system[sysType]">
+                        <option value="">Select System</option>
+                        <option value = "PC">PC</option>
+                        <option value = "XboxOne">XboxOne</option>
+                        <option value = "XboxOne S">XboxOne S</option>
+                        <option value = "XboxOne X">XboxOne X</option>
+                        <option value = "Xbox Series X">Xbox Series X</option>
+                        <option value = "Xbox Series S">Xbox Series S</option>
+                        <option value = "PS4">PS4</option>
+                        <option value = "PS4 Pro">PS4 Pro</option>
+                        <option value="PS5">PS5</option>
+                     </select>
+                  </p>
+                  <p class="pc--specs">Graphics Card</p>
+                  <input class="pc--specs" type="text" name="system[gfxCard]" placeholder="nVidia GeForce GTX 1080" disabled>
+                  <p class="pc--specs">Operating System</p>
+                  <input class="pc--specs" type="text" name="system[os]" placeholder="Windows 10" disabled>
+                  <p class="pc--specs">CPU</p>
+                  <input class="pc--specs" type="text" name="system[cpu]" placeholder="AMD Ryzen 7 1700X" disabled>
+               </fieldset>
+                     
+            </aside> 
+            
+         </form>
+               
+            <div class="new--report--btn">
+               <input type="submit" value="Post" class="btn" form="create--report" id="new--report--btn">
+            </div>
+      </div> 
+ </main>
+
+</body>
+</html>

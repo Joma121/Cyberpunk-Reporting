@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Link Scripts -->
+    <script src="/scripts/app.js" defer></script>
+    <!-- Link Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/"></a><img src="/images/cp logo-2077.png">
+        <h1>Reporting</h1>
+    </div>
+  </header>
+<body>
+    <div class="bar">
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+    <nav class="navbar">
+        <section class="navbar__location">
+            <h1>Edit Profile</h1>
+        </section>
+        <section class="navbar__links">
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user) { %>
+            <a href="/reports/new"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/users/<%= user.id %>"><i class="fas fa-user-circle"></i></a>
+            <form action="/logout?_method=DELETE" method="POST"">
+            <a href="#logout" onclick="this.parentNode.submit();"><i class="fas fa-sign-out-alt"></i></a>
+            </form>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-user-circle"></i></a></a>
+            <% } %>     
+        </section>   
+    </nav>  
+      
+    <div class="design">
+        <div id="navtop"></div>
+        <div id="navbottom"></div>
+    </div>   
+    <aside class="profile">
+        <div class="profile__icon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <h1><%= user.username %></h1>
+        <div class="profile__info">
+            <p class="person--settings" id="personal"><i class="far fa-address-card"></i> Personal Info</p>
+            <p class="login--settings" id="account"><i class="fas fa-cog"></i> Login Settings</p>
+        </div>
+
+    </aside>
+        <main>
+                          
+                <div class="settings">
+                    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                        <div class="personal">
+                            <h1>Personal Info</h1>
+                            <h3>Location</h3>
+                            <input type="text" name="location" id="location" <% if(user.location) { %> value="<%= user.location %>" <% } else { %> placeholder="City, State, Country" <% } %>>
+                            <h3>Blurb</h3>
+                            <textarea type="text" name="blurb" rows="4" cols="40" class="input" <% if(!user.blurb) { %> placeholder="A bit about you"><% } else { %>><%= user.blurb %><% } %></textarea>
+                            
+                            <p><input type="submit" class="btn" value="Update"></p>
+                            
+                        </div>
+                    </form>
+                    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                        <div class="account">
+                            <h1>Login Settings</h1>
+                            <h3>E-mail</h3>
+                            <input name="email" type="text" class="email" value="<%= user.email %>">                            
+                            <p><input type="submit" class="btn" value="Update"></p>
+                        </div>
+                    </form>
+                </div>
+          </main>
+</body>
+    
+</html>
