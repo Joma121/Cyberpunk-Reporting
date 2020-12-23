@@ -380,3 +380,66 @@ main {
     padding-bottom: 10px;
     z-index: 10;
 }
+/* -register- */
+.new--report {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 725px;
+    /* background-color: white; */
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:0 0 7px rgb(10, 189, 198),  inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.new--report::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.new--report form {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+.new--report__textfields {
+    display: flex;
+    flex-direction: column;
+}
+.new--report__selectors {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+}
+.new--report__system {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    margin-right: 20px;
+}
+
+#new--report--btn {
+    justify-self: end;
+    width: 6ch;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    z-index: 10;
+}
