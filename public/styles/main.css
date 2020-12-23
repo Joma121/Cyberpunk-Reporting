@@ -387,7 +387,7 @@ main {
     align-self: center;
     justify-self: center;
     flex-direction: column;
-    width: 725px;
+    width: 600px;
     /* background-color: white; */
     color: white;
     margin: 0 auto 50px;
@@ -414,10 +414,14 @@ main {
     justify-content: space-between;
     padding: 0;
     margin: 0;
+    margin-top: 20px;
     margin-left: 11px;
     padding-left: 10px;
-    padding-bottom: 10px;
     z-index: 10;
+}
+.new--report form p {
+    margin: 0;
+    padding: 0;
 }
 .new--report__textfields {
     display: flex;
@@ -426,17 +430,10 @@ main {
 .new--report__selectors {
     display: flex;
     flex-direction: column;
-    margin-top: 45px;
-}
-.new--report__system {
-    display: flex;
-    flex-direction: column;
-    margin-top: 45px;
     margin-right: 20px;
 }
 
 #new--report--btn {
-    justify-self: end;
     width: 6ch;
     padding: 0;
     margin: 0;

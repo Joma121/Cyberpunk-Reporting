@@ -53,24 +53,12 @@
     <main>
       <div class="new--report">
          <form action="/reports" method="POST" id="create--report">
-            <div class="new--report__textfields">
-            <h2>New Report</h2>
-               <div class="input-container">
-               <input class="input-field" type="text" placeholder="Title" size="20" name="title">
-            </div>
-             <div class="input-container">
-                 <textarea class="input-field" type="text" placeholder="Brief Description" rows="3" cols="30" value="" name="actualOutcome"></textarea>
-              </div>
-
-              <div class="input-container">
-                 <textarea class="input-field" type="text" placeholder="Expected Outcome" rows="3" cols="30" value="" name="expectedOutcome"></textarea>
-              </div>
-
-              <div class="input-container">
-                 <textarea class="input-field" type="text" placeholder="Steps to Reproduce" rows="10" cols="30" value="" name="description"></textarea>
-              </div>
-            </div>
-             
+            <section class="new--report__textfields">
+               <p>Title</p><p><input class="input-field" type="text" placeholder="Title" size="20" name="title"></p>
+               <p>Actual Outcome</p><p><textarea class="input-field" type="text" placeholder="Brief Description" rows="3" cols="30" value="" name="actualOutcome"></textarea></p>
+               <p>Expected Outcome</p><p><textarea class="input-field" type="text" placeholder="Expected Outcome" rows="3" cols="30" value="" name="expectedOutcome"></textarea></p>
+               <p>What Happened / How to Reproduce</p><p><textarea class="input-field" type="text" placeholder="Steps to Reproduce" rows="10" cols="30" value="" name="description"></textarea></p>
+            </section>           
             <aside class="new--report__selectors">
                <fieldset>
                   <legend><i class="fas fa-tag"></i>  Category</legend>
@@ -115,35 +103,37 @@
                   min="2020-12-09" >
                </fieldset>
                
-                     
+               <fieldset class="new--report__system">
+                  <legend><i class="fas fa-desktop"></i> System</legend>
+                  <p>
+                     <select id="system" name="system[sysType]">
+                        <option value="">Select System</option>
+                        <option value = "PC">PC</option>
+                        <option value = "XboxOne">XboxOne</option>
+                        <option value = "XboxOne S">XboxOne S</option>
+                        <option value = "XboxOne X">XboxOne X</option>
+                        <option value = "Xbox Series X">Xbox Series X</option>
+                        <option value = "Xbox Series S">Xbox Series S</option>
+                        <option value = "PS4">PS4</option>
+                        <option value = "PS4 Pro">PS4 Pro</option>
+                        <option value="PS5">PS5</option>
+                     </select>
+                  </p>
+                  <p class="pc--specs">Graphics Card</p>
+                  <input class="pc--specs" type="text" name="system[gfxCard]" placeholder="nVidia GeForce GTX 1080" disabled>
+                  <p class="pc--specs">Operating System</p>
+                  <input class="pc--specs" type="text" name="system[os]" placeholder="Windows 10" disabled>
+                  <p class="pc--specs">CPU</p>
+                  <input class="pc--specs" type="text" name="system[cpu]" placeholder="AMD Ryzen 7 1700X" disabled>
+               </fieldset>
                      
             </aside> 
-            <fieldset class="new--report__system">
-               <legend><i class="fas fa-desktop"></i> System</legend>
-               <p>
-                  <select id="system" name="system[sysType]">
-                     <option value="">Select System</option>
-                     <option value = "PC">PC</option>
-                     <option value = "XboxOne">XboxOne</option>
-                     <option value = "XboxOne S">XboxOne S</option>
-                     <option value = "XboxOne X">XboxOne X</option>
-                     <option value = "Xbox Series X">Xbox Series X</option>
-                     <option value = "Xbox Series S">Xbox Series S</option>
-                     <option value = "PS4">PS4</option>
-                     <option value = "PS4 Pro">PS4 Pro</option>
-                     <option value="PS5">PS5</option>
-                  </select>
-               </p>
-               <p class="pc--specs">Graphics Card</p>
-               <input class="pc--specs" type="text" name="system[gfxCard]" placeholder="nVidia GeForce GTX 1080" disabled>
-               <p class="pc--specs">Operating System</p>
-               <input class="pc--specs" type="text" name="system[os]" placeholder="Windows 10" disabled>
-               <p class="pc--specs">CPU</p>
-               <input class="pc--specs" type="text" name="system[cpu]" placeholder="AMD Ryzen 7 1700X" disabled>
-            </fieldset>
+            
          </form>
                
-            <input type="submit" value="Post" class="btn" form="create--report" id="new--report--btn">
+            <div class="">
+               <input type="submit" value="Post" class="btn" form="create--report" id="new--report--btn">
+            </div>
       </div> 
  </main>
 
