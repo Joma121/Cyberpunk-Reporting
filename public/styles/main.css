@@ -306,3 +306,40 @@ main {
 #account:hover {
     cursor: pointer;
 }
+/* -edit profile- */
+
+/* login */
+.login {
+    display:flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 250px;
+    /* background-color: white; */
+    color: white;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+    line-height: 20px;
+    border: 3px solid rgb(10, 189, 198);
+    box-shadow:0 0 7px rgb(10, 189, 198),  inset 0 0 7px rgb(10, 189, 198);
+    position: relative;
+}
+.login::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid magenta;
+    box-shadow: 0 0 10px magenta, inset 0 0 10px magenta;
+    border-radius: 3px;
+}
+.login form {
+    padding: 0;
+    margin: 0;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+}
