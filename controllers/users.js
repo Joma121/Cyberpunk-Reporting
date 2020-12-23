@@ -41,7 +41,7 @@ router.get("/settings", authRequired, async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const foundUser = await db.User.findById(req.params.id).populate("reports");
-        const context = {user: foundUser};
+        const context = {viewUser: foundUser};
 
         return res.render("users/usersProfile", context);
     } catch (err) {
