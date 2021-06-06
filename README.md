@@ -71,10 +71,3 @@
 The site will be a pseudo-social site for reporting issues with Cyberpunk 2077. Base features include User Authentication, CRUD for Users, CRUD for reports, logging out, being able to see someone's reports on their profile view, showing reports on the main page by top, recent, and severity.
 
 
-<h2>Challenges</h2>
-
-
-Sample:
-```javscript
-
-```
